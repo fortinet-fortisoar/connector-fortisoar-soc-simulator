@@ -339,7 +339,7 @@
                                             "orderIndex": 1
                                         },
                                         "emailTo": "{{vars.data.email_details.recipient}}",
-                                        "fileHash": "6b311b2ac37d3bf5eag21551e4b66eb5",
+                                        "fileHash": "8359e029989b712bfd33b6b82d36ab46",
                                         "severity": {
                                             "id": 60,
                                             "@id": "\/api\/3\/picklists\/40187287-89fc-4e9c-b717-e9443d57eedb",
@@ -627,7 +627,7 @@
                                 "name": "Configuration",
                                 "description": null,
                                 "arguments": {
-                                    "data": "{\n  \"time\": \"2019-06-17T23:22:57.100Z\",\n  \"uuid\": \"3379f1a0-398a-a6e8-222d-009000000045\",\n  \"state\": 1,\n  \"summary\": \"Unencrypted Outbound Email with attachment containing PII\",\n  \"updated\": \"2019-06-18T08:05:20.120Z\",\n  \"filehash\": \"6b311b2ac37d3bf5eag21551e4b66eb5\",\n \"hostname\": \"acct-station-1\",\n \"user\": \"CORP\\\\BobTheAccountant\",\n  \"log_name\": \"DLP-Outbound_SMTP_with_PII\",\n  \"deviceUid\": [\n    \"512ece93-dc91-44a6-8fc4-ba3177d50473\"\n  ],\n  \"event_count\": 1,\n  \"priority_level\": 2,\n  \"alert_id\": 67,\n  \"pii_type\": \"SSN\",\n  \"email_details\": \n    {\"sender\": \"bobtheaccountant@company.biz\",\n    \"recipient\": \"taxes@irs.taxes.net\",\n    \"subject\": \"Re: Kindly Requesting Tax Records\",\n    \"attachment_name\": \"W-2_records_extract.xlsx\"}\n}",
+                                    "data": "{\n  \"time\": \"2019-06-17T23:22:57.100Z\",\n  \"uuid\": \"3379f1a0-398a-a6e8-222d-009000000045\",\n  \"state\": 1,\n  \"summary\": \"Unencrypted Outbound Email with attachment containing PII\",\n  \"updated\": \"2019-06-18T08:05:20.120Z\",\n  \"filehash\": \"8359e029989b712bfd33b6b82d36ab46\",\n \"hostname\": \"acct-station-1\",\n \"user\": \"CORP\\\\BobTheAccountant\",\n  \"log_name\": \"DLP-Outbound_SMTP_with_PII\",\n  \"deviceUid\": [\n    \"512ece93-dc91-44a6-8fc4-ba3177d50473\"\n  ],\n  \"event_count\": 1,\n  \"priority_level\": 2,\n  \"alert_id\": 67,\n  \"pii_type\": \"SSN\",\n  \"email_details\": \n    {\"sender\": \"bobtheaccountant@company.biz\",\n    \"recipient\": \"taxes@irs.taxes.net\",\n    \"subject\": \"Re: Kindly Requesting Tax Records\",\n    \"attachment_name\": \"W-2_records_extract.xlsx\"}\n}",
                                     "assignee": "{{(vars.steps.Get_available_assignees.data['hydra:member'] | json_query('[*].[\"@id\"][]') | shuffle)[0]}}"
                                 },
                                 "status": null,

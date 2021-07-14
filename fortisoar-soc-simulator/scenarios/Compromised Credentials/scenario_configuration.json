@@ -798,7 +798,7 @@
                                         "userName": "{{ vars.alert_data.incident_data.attributes.incidentSrc | regex_search('(?<=srcUser:)([^,]+)') }}",
                                         "__replace": "false",
                                         "sourcedata": "{{vars.alert_data | toJSON}}",
-                                        "description": "{{vars.alert_data.incident_data.attributes.incidentDetail}}\n\nUser {{vars.alert_data.incident_data.attributes.incidentSrc.replace('srcUser:', '').strip()}} created an account {{vars.alert_data.incident_data.attributes.domain + \"\/\" + vars.alert_data.incident_data.attributes.user}} ",
+                                        "description": "{{vars.alert_data.incident_data.attributes.incidentDetail}}\n\nUser {{vars.alert_data.incident_data.attributes.incidentSrc.replace('srcUser:', '').strip()}} updated a password for account {{vars.alert_data.incident_data.attributes.domain + \"\/\" + vars.alert_data.incident_data.attributes.user}} ",
                                         "ackSlaStatus": {
                                             "id": 289,
                                             "@id": "\/api\/3\/picklists\/72979f64-e8b9-4888-a965-957e0ec24818",
