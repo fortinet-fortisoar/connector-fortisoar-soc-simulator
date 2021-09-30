@@ -1639,9 +1639,8 @@
                 "input": {
                   "schema": {
                     "title": "Did you deploy configuration",
-                    "description": "Please confirm that you have deployed the **{{vars.input.params.recordName}}** configuration.\n\nIf not, please close this window, and navigate to Import Wizard and import the  '**{{vars.input.params.recordName}}**' template.\n\nThen come back to the Manual Input and click **yes** to proceed.",
-                    "inputVariables": []
-					
+                    "description": "Please confirm that you have deployed the **{{vars.input.params.recordName}}** configuration.\nIf not, please do the following:\n<br>\n1. Close this Manual Input popup.\n2. Navigate to ‘Import Wizard’ and import the **{{vars.input.params.recordName}}** template.\n3. Once the **{{vars.input.params.recordName}}** template import is completed, reopen this Manual Input popup, and click **Yes** to proceed.\n",
+                    "inputVariables": []				
                   }
                 },
                 "record": "{{vars.input.params.recordIRI}}",
