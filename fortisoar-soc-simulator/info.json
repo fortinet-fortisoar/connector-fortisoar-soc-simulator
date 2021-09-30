@@ -1,6 +1,6 @@
 {
     "name": "fortisoar-soc-simulator",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "label": "FortiSOAR SOC Simulator",
     "description": "FortiSOAR SOC Simulator",
     "publisher": "FortiSOAR",
