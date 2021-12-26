@@ -1,4 +1,4 @@
-import json, requests, os, random, re, arrow, secrets, base64
+import json, requests, os, random, re, arrow, secrets, base64, logging
 from connectors.core.connector import get_logger, ConnectorError
 from django.conf import settings
 from connectors.cyops_utilities.builtins import upload_file_to_cyops
@@ -8,7 +8,7 @@ from .constants import *
 from .utils import *
 
 logger = get_logger('FortiSOARSocSimulator')
-#logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.DEBUG)
 
 def __threatdata_from_file(filename , params):
     """
@@ -45,7 +45,8 @@ def _replace_variables(input_string,params=None):
     if isinstance(input_string, dict):
         input_string = json.dumps(input_string)
     
-    tag_list = re.findall('\[\{(.*?)\}\]',input_string)
+    tag_list = re.findall(r'<<(TR_[A-Z0-9_,.-]+)>>',input_string)
+    logger.debug("Tags found [{}]".format(tag_list))
     try:
         if not tag_list:
             return json.loads(input_string)     #No tag to replace
@@ -59,11 +60,11 @@ def _replace_variables(input_string,params=None):
                     tr_params = tr_tag[1:]
                     tag_value = str(function_dictionary[tr_function](tr_params))
                     logger.debug("Tag: [{0}] replaced with [{1}]".format(tag,tag_value))
-                    input_string = input_string.replace('[{'+tag+'}]',tag_value)
+                    input_string = input_string.replace('<<'+tag+'>>',tag_value)
                 else:
                     tag_value = str(function_dictionary[tag](params))
                     logger.debug("Tag: [{0}] replaced with [{1}]".format(tag,tag_value))
-                    input_string = input_string.replace('[{'+tag+'}]',tag_value)
+                    input_string = input_string.replace('<<'+tag+'>>',tag_value)
         return json.loads(input_string)
 
     except Exception as e:
@@ -155,7 +156,7 @@ def create_simulated_alert(params):
     """ 
     try:
         alert_json = params.get('alert_json') if isinstance(params.get('alert_json'), dict) else json.loads(params.get('alert_json'))
-        for elem in ['uuid','@id','id']:
+        for elem in FIELDS_TO_DELETE:
             alert_json.pop(elem)
 
         return make_request('/api/3/alerts', 'POST', body=_replace_variables(alert_json))
