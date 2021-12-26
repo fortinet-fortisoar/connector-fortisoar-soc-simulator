@@ -3,18 +3,208 @@
   "data": [
     {
       "@type": "WorkflowCollection",
-      "name": "Sample - FortiSOAR SOC Simulator - 1.0.7",
+      "name": "Sample - FortiSOAR SOC Simulator - 1.0.8",
       "description": "Sample playbooks for \"FortiSOAR SOC Simulator\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/6019447b-08df-49bf-8399-a6b25969192a",
+      "image": "/api/3/images/21c18c14-c3b1-44ac-ba0b-23d20a61b15b",
       "uuid": "86c5ea16-d69d-46e1-8013-2437beadbb09",
-      "id": 51,
+      "id": 188,
       "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "createDate": 1633531803,
+      "createDate": 1640162758,
       "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "modifyDate": 1633531803,
+      "modifyDate": 1640162758,
       "recordTags": [],
       "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Malicious IP and URL",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get Sample malicious IP and URL",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1640502470,
+          "collection": "/api/3/workflow_collections/86c5ea16-d69d-46e1-8013-2437beadbb09",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3f5e0f8a-54cd-4daf-9818-f2293cea5d98",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Bad URL",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "49e31d78-46c3-4d6a-be56-b0758bbf579c",
+                "params": [],
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "bad_url",
+                "operationTitle": "Fetch Malicious URL",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "031c940d-b8d1-4d43-ad57-a1f9de70c7d5",
+              "id": 10223
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "1547bb3a-dc90-40cc-b1c6-6bafba3566be",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "3f5e0f8a-54cd-4daf-9818-f2293cea5d98",
+              "id": 10217
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Random Bad IP",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "49e31d78-46c3-4d6a-be56-b0758bbf579c",
+                "params": {
+                  "random": true
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "bad_ip",
+                "operationTitle": "Fetch Malicious IP",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "ee73095d-dad1-478d-af69-ec0714e1e900",
+              "id": 10214
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Random Bad URL",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "49e31d78-46c3-4d6a-be56-b0758bbf579c",
+                "params": {
+                  "random": true
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "bad_url",
+                "operationTitle": "Fetch Malicious URL",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "fcc9bb1d-1e39-4417-8c84-ea4ce4a68a29",
+              "id": 10224
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Bad IP",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "49e31d78-46c3-4d6a-be56-b0758bbf579c",
+                "params": [],
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "bad_ip",
+                "operationTitle": "Fetch Malicious IP",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "fec67978-899d-42bd-ae4a-63f2c5e4e02c",
+              "id": 10215
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Copy  of Get Bad IP",
+              "targetStep": "/api/3/workflow_steps/031c940d-b8d1-4d43-ad57-a1f9de70c7d5",
+              "sourceStep": "/api/3/workflow_steps/3f5e0f8a-54cd-4daf-9818-f2293cea5d98",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "44a2c9d4-d9b9-4389-b3d3-12a7133a5342"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Bad IP -> Get Random Bad IP",
+              "targetStep": "/api/3/workflow_steps/ee73095d-dad1-478d-af69-ec0714e1e900",
+              "sourceStep": "/api/3/workflow_steps/fec67978-899d-42bd-ae4a-63f2c5e4e02c",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "af9f1511-537c-448f-bd23-f86095a239a5"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Copy  of Get Bad IP -> Copy  of Get Random Bad IP",
+              "targetStep": "/api/3/workflow_steps/fcc9bb1d-1e39-4417-8c84-ea4ce4a68a29",
+              "sourceStep": "/api/3/workflow_steps/031c940d-b8d1-4d43-ad57-a1f9de70c7d5",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e4bffb3e-454b-48b8-a0e5-9316e472c1d8"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Bad IP",
+              "targetStep": "/api/3/workflow_steps/fec67978-899d-42bd-ae4a-63f2c5e4e02c",
+              "sourceStep": "/api/3/workflow_steps/3f5e0f8a-54cd-4daf-9818-f2293cea5d98",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "fb31bfe4-aae3-4169-a3e8-4adfe6ada81d"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "0908abfe-30d5-41cd-8769-1f97cfe0743d",
+          "recordTags": [
+            "FortiSOAR SOC Simulator",
+            "Sample"
+          ],
+          "id": 2040,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1640501805,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1640502469,
+          "owners": [],
+          "isPrivate": false
+        },
         {
           "@type": "Workflow",
           "triggerLimit": null,
@@ -39,50 +229,61 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Wait For Next Step",
+              "name": "Configuration",
               "description": null,
               "arguments": {
-                "conditions": [
-                  {
-                    "option": "Wait Time < 0",
-                    "step_iri": "/api/3/workflow_steps/f1d05606-cd6f-4564-8cc6-3824b8f8eb1c",
-                    "condition": "{{ vars.Wait_Time == -1 }}",
-                    "step_name": "Manual Task to Action"
-                  },
-                  {
-                    "option": "Wait Time > 0",
-                    "step_iri": "/api/3/workflow_steps/d6724a53-3568-4655-8c3f-92c0c563e076",
-                    "condition": "{{ vars.Wait_Time > 0 }}",
-                    "step_name": "Wait for Alert Creation"
-                  },
-                  {
-                    "option": "create alert",
-                    "default": true,
-                    "step_iri": "/api/3/workflow_steps/b0c4732c-307d-476d-b54a-d05a9ef63678",
-                    "step_name": "Create Alert if no wait time"
-                  }
-                ]
+                "Wait_Time": "{{vars.input.params.steps.waitTimeforNextStep}}",
+                "alert_Steps": "{{vars.input.params.steps}}"
               },
               "status": null,
-              "top": "570",
-              "left": "475",
-              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
-              "uuid": "e930794a-99ea-420f-a551-5696db6e47f7",
-              "id": 3198
+              "top": "160",
+              "left": "480",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "07647d63-6c21-475d-883d-7bfa4580f284",
+              "id": 10133
             },
             {
               "@type": "WorkflowStep",
-              "name": "AlertIRI based on create or Execute ALert",
+              "name": "Format ALert List",
               "description": null,
               "arguments": {
-                "alertIRI": "{{vars.steps.Create_Alert['@id']| ternary(vars.steps.Create_Alert['@id'],vars.alertByExecutePlaybook)}}"
+                "formatted_alert_list": "{{vars.createdAlertId + [vars.alertIRI]}}"
               },
               "status": null,
-              "top": "1245",
+              "top": "1380",
               "left": "475",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "d9a1118c-5a92-4f56-9400-9c90f0e33a3e",
-              "id": 3199
+              "uuid": "33879d82-ba52-4860-b18e-87ba352a95c0",
+              "id": 10128
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Add comments to Use Case module",
+              "description": null,
+              "arguments": {
+                "message": {
+                  "tags": [],
+                  "type": "/api/3/picklists/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
+                  "tenant": "",
+                  "content": "{% if vars.alert_Steps.preCreateMessage %}\n{{vars.alert_Steps.preCreateMessage}}\n{%endif%}\n\n",
+                  "records": "{{vars.input.params.recordIRI}}"
+                },
+                "resource": [],
+                "_showJson": false,
+                "operation": "Overwrite",
+                "collection": "{{vars.input.params.recordIRI}}",
+                "collectionType": "/api/3/scenario",
+                "fieldOperation": {
+                  "recordTags": "Overwrite"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "435",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
+              "uuid": "344806ac-fa54-46a7-8d59-acada5ed82d9",
+              "id": 10136
             },
             {
               "@type": "WorkflowStep",
@@ -195,86 +396,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/2597053c-e718-44b4-8394-4d40fe26d357",
               "uuid": "392a85b3-21a8-449c-9516-fb05b1c62ac0",
-              "id": 3200
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Replace String",
-              "description": null,
-              "arguments": {
-                "name": "FortiSOAR SOC Simulator",
-                "config": "59dbf54a-cb74-48ef-b24a-23fc84f9fdd1",
-                "params": {
-                  "variables": "{{vars.input.params.steps}}"
-                },
-                "version": "1.0.0",
-                "connector": "fortisoar-soc-simulator",
-                "operation": "replace_variables",
-                "operationTitle": "Replace Variables",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "300",
-              "left": "475",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "uuid": "9ad26588-b055-4490-bf0b-bda7100f1abf",
-              "id": 3201
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Format ALert List",
-              "description": null,
-              "arguments": {
-                "formatted_alert_list": "{{vars.createdAlertId + [vars.alertIRI]}}"
-              },
-              "status": null,
-              "top": "1380",
-              "left": "475",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "33879d82-ba52-4860-b18e-87ba352a95c0",
-              "id": 3202
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Launch Step Playbook",
-              "description": null,
-              "arguments": {
-                "when": "{{vars.alert_Steps.type == \"executePlaybook\"}}",
-                "arguments": [],
-                "apply_async": false,
-                "step_variables": [],
-                "workflowReference": "{{vars.alert_Steps.playbookIRI}}"
-              },
-              "status": null,
-              "top": "975",
-              "left": "475",
-              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
-              "uuid": "9fe2e735-c7a9-4716-8bf8-930610721d18",
-              "id": 3203
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Update created Alerts ID list",
-              "description": null,
-              "arguments": {
-                "resource": {
-                  "createdAlertsID": "{{(vars.formatted_alert_list | sum(start=[])| toJSON) if (vars.formatted_alert_list[0] | type_debug == \"list\") else (vars.formatted_alert_list|toJSON|replace(\" \",\"\"))}}"
-                },
-                "_showJson": false,
-                "operation": "Overwrite",
-                "collection": "{{vars.input.params.recordIRI}}",
-                "collectionType": "/api/3/scenario",
-                "fieldOperation": {
-                  "recordTags": "Overwrite"
-                },
-                "step_variables": []
-              },
-              "status": null,
-              "top": "1515",
-              "left": "475",
-              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
-              "uuid": "c5a4517c-0da1-4fe3-af43-2a270e443ef2",
-              "id": 3204
+              "id": 10126
             },
             {
               "@type": "WorkflowStep",
@@ -310,7 +432,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928770",
               "uuid": "8a4d5d53-0f00-49a9-bd99-d1444ec02fca",
-              "id": 3205
+              "id": 10131
             },
             {
               "@type": "WorkflowStep",
@@ -324,22 +446,158 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
               "uuid": "973f3b45-5bc1-4522-9e23-0fe88432bd88",
-              "id": 3206
+              "id": 10132
             },
             {
               "@type": "WorkflowStep",
-              "name": "Configuration",
+              "name": "Replace String",
               "description": null,
               "arguments": {
-                "Wait_Time": "{{vars.input.params.steps.waitTimeforNextStep}}",
-                "alert_Steps": "{{vars.input.params.steps}}"
+                "name": "FortiSOAR SOC Simulator",
+                "config": "59dbf54a-cb74-48ef-b24a-23fc84f9fdd1",
+                "params": {
+                  "variables": "{{vars.input.params.steps}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "replace_variables",
+                "operationTitle": "Replace Variables",
+                "step_variables": []
               },
               "status": null,
-              "top": "160",
-              "left": "480",
+              "top": "300",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "9ad26588-b055-4490-bf0b-bda7100f1abf",
+              "id": 10127
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Launch Step Playbook",
+              "description": null,
+              "arguments": {
+                "when": "{{vars.alert_Steps.type == \"executePlaybook\"}}",
+                "arguments": [],
+                "apply_async": false,
+                "step_variables": [],
+                "workflowReference": "{{vars.alert_Steps.playbookIRI}}"
+              },
+              "status": null,
+              "top": "975",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+              "uuid": "9fe2e735-c7a9-4716-8bf8-930610721d18",
+              "id": 10129
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Alert if no wait time",
+              "description": null,
+              "arguments": {
+                "params": [],
+                "version": "3.0.3",
+                "connector": "cyops_utilities",
+                "operation": "no_op",
+                "operationTitle": "Utils: No Operation",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "705",
+              "left": "825",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "b0c4732c-307d-476d-b54a-d05a9ef63678",
+              "id": 10137
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update created Alerts ID list",
+              "description": null,
+              "arguments": {
+                "resource": {
+                  "createdAlertsID": "{{(vars.formatted_alert_list | sum(start=[])| toJSON) if (vars.formatted_alert_list[0] | type_debug == \"list\") else (vars.formatted_alert_list|toJSON|replace(\" \",\"\"))}}"
+                },
+                "_showJson": false,
+                "operation": "Overwrite",
+                "collection": "{{vars.input.params.recordIRI}}",
+                "collectionType": "/api/3/scenario",
+                "fieldOperation": {
+                  "recordTags": "Overwrite"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "1515",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
+              "uuid": "c5a4517c-0da1-4fe3-af43-2a270e443ef2",
+              "id": 10130
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Wait for Alert Creation",
+              "description": null,
+              "arguments": {
+                "delay": {
+                  "days": 0,
+                  "hours": 0,
+                  "weeks": 0,
+                  "minutes": "0",
+                  "seconds": "{{vars.Wait_Time}}"
+                }
+              },
+              "status": null,
+              "top": "705",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/6832e556-b9c7-497a-babe-feda3bd27dbf",
+              "uuid": "d6724a53-3568-4655-8c3f-92c0c563e076",
+              "id": 10135
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "AlertIRI based on create or Execute ALert",
+              "description": null,
+              "arguments": {
+                "alertIRI": "{{vars.steps.Create_Alert['@id']| ternary(vars.steps.Create_Alert['@id'],vars.alertByExecutePlaybook)}}"
+              },
+              "status": null,
+              "top": "1245",
+              "left": "475",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "07647d63-6c21-475d-883d-7bfa4580f284",
-              "id": 3207
+              "uuid": "d9a1118c-5a92-4f56-9400-9c90f0e33a3e",
+              "id": 10125
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Wait For Next Step",
+              "description": null,
+              "arguments": {
+                "conditions": [
+                  {
+                    "option": "Wait Time < 0",
+                    "step_iri": "/api/3/workflow_steps/f1d05606-cd6f-4564-8cc6-3824b8f8eb1c",
+                    "condition": "{{ vars.Wait_Time == -1 }}",
+                    "step_name": "Manual Task to Action"
+                  },
+                  {
+                    "option": "Wait Time > 0",
+                    "step_iri": "/api/3/workflow_steps/d6724a53-3568-4655-8c3f-92c0c563e076",
+                    "condition": "{{ vars.Wait_Time > 0 }}",
+                    "step_name": "Wait for Alert Creation"
+                  },
+                  {
+                    "option": "create alert",
+                    "default": true,
+                    "step_iri": "/api/3/workflow_steps/b0c4732c-307d-476d-b54a-d05a9ef63678",
+                    "step_name": "Create Alert if no wait time"
+                  }
+                ]
+              },
+              "status": null,
+              "top": "570",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+              "uuid": "e930794a-99ea-420f-a551-5696db6e47f7",
+              "id": 10124
             },
             {
               "@type": "WorkflowStep",
@@ -376,75 +634,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
               "uuid": "f1d05606-cd6f-4564-8cc6-3824b8f8eb1c",
-              "id": 3208
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Wait for Alert Creation",
-              "description": null,
-              "arguments": {
-                "delay": {
-                  "days": 0,
-                  "hours": 0,
-                  "weeks": 0,
-                  "minutes": "0",
-                  "seconds": "{{vars.Wait_Time}}"
-                }
-              },
-              "status": null,
-              "top": "705",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/6832e556-b9c7-497a-babe-feda3bd27dbf",
-              "uuid": "d6724a53-3568-4655-8c3f-92c0c563e076",
-              "id": 3209
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Add comments to Use Case module",
-              "description": null,
-              "arguments": {
-                "message": {
-                  "tags": [],
-                  "type": "/api/3/picklists/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
-                  "tenant": "",
-                  "content": "{% if vars.alert_Steps.preCreateMessage %}\n{{vars.alert_Steps.preCreateMessage}}\n{%endif%}\n\n",
-                  "records": "{{vars.input.params.recordIRI}}"
-                },
-                "resource": [],
-                "_showJson": false,
-                "operation": "Overwrite",
-                "collection": "{{vars.input.params.recordIRI}}",
-                "collectionType": "/api/3/scenario",
-                "fieldOperation": {
-                  "recordTags": "Overwrite"
-                },
-                "step_variables": []
-              },
-              "status": null,
-              "top": "435",
-              "left": "475",
-              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
-              "uuid": "344806ac-fa54-46a7-8d59-acada5ed82d9",
-              "id": 3210
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Create Alert if no wait time",
-              "description": null,
-              "arguments": {
-                "params": [],
-                "version": "3.0.3",
-                "connector": "cyops_utilities",
-                "operation": "no_op",
-                "operationTitle": "Utils: No Operation",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "705",
-              "left": "825",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "uuid": "b0c4732c-307d-476d-b54a-d05a9ef63678",
-              "id": 3211
+              "id": 10134
             }
           ],
           "routes": [
@@ -459,48 +649,12 @@
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Wait step -> a",
-              "targetStep": "/api/3/workflow_steps/f1d05606-cd6f-4564-8cc6-3824b8f8eb1c",
-              "sourceStep": "/api/3/workflow_steps/e930794a-99ea-420f-a551-5696db6e47f7",
-              "label": "Wait Time < 0",
-              "isExecuted": false,
-              "uuid": "e0e54fc8-9cfa-403d-a203-97043d4714a6"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Replace String -> Add comments to Use Case module",
-              "targetStep": "/api/3/workflow_steps/344806ac-fa54-46a7-8d59-acada5ed82d9",
-              "sourceStep": "/api/3/workflow_steps/9ad26588-b055-4490-bf0b-bda7100f1abf",
+              "name": "Add comments to Use Case module -> Wait For Next Step",
+              "targetStep": "/api/3/workflow_steps/e930794a-99ea-420f-a551-5696db6e47f7",
+              "sourceStep": "/api/3/workflow_steps/344806ac-fa54-46a7-8d59-acada5ed82d9",
               "label": null,
               "isExecuted": false,
-              "uuid": "c074f2c2-cde3-4b82-b598-f37b4b2bc15f"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Launch Step Playbook -> Find Created Alerts ID",
-              "targetStep": "/api/3/workflow_steps/8a4d5d53-0f00-49a9-bd99-d1444ec02fca",
-              "sourceStep": "/api/3/workflow_steps/9fe2e735-c7a9-4716-8bf8-930610721d18",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "5e4a770b-bff7-468b-a006-85b0450bc598"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Manual Task to Action -> Create Alert",
-              "targetStep": "/api/3/workflow_steps/392a85b3-21a8-449c-9516-fb05b1c62ac0",
-              "sourceStep": "/api/3/workflow_steps/f1d05606-cd6f-4564-8cc6-3824b8f8eb1c",
-              "label": "Proceed",
-              "isExecuted": false,
-              "uuid": "f06c2e50-1a69-4a45-84cf-3bb7d4dec298"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Configuration -> Replace String",
-              "targetStep": "/api/3/workflow_steps/9ad26588-b055-4490-bf0b-bda7100f1abf",
-              "sourceStep": "/api/3/workflow_steps/07647d63-6c21-475d-883d-7bfa4580f284",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "d80ebf43-82fd-461a-8262-b6188ff22c45"
+              "uuid": "0f8d0814-4226-4301-9c32-b61b6960e72e"
             },
             {
               "@type": "WorkflowRoute",
@@ -513,30 +667,30 @@
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Add comments to Use Case module -> Wait For Next Step",
-              "targetStep": "/api/3/workflow_steps/e930794a-99ea-420f-a551-5696db6e47f7",
-              "sourceStep": "/api/3/workflow_steps/344806ac-fa54-46a7-8d59-acada5ed82d9",
+              "name": "Format ALert List -> Update created Alerts ID list",
+              "targetStep": "/api/3/workflow_steps/c5a4517c-0da1-4fe3-af43-2a270e443ef2",
+              "sourceStep": "/api/3/workflow_steps/33879d82-ba52-4860-b18e-87ba352a95c0",
               "label": null,
               "isExecuted": false,
-              "uuid": "0f8d0814-4226-4301-9c32-b61b6960e72e"
+              "uuid": "4cfa8416-c012-44ae-ace9-5b6e290b2d55"
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Wait for Alert Creation -> Create Alert",
-              "targetStep": "/api/3/workflow_steps/392a85b3-21a8-449c-9516-fb05b1c62ac0",
-              "sourceStep": "/api/3/workflow_steps/d6724a53-3568-4655-8c3f-92c0c563e076",
+              "name": "Launch Step Playbook -> Find Created Alerts ID",
+              "targetStep": "/api/3/workflow_steps/8a4d5d53-0f00-49a9-bd99-d1444ec02fca",
+              "sourceStep": "/api/3/workflow_steps/9fe2e735-c7a9-4716-8bf8-930610721d18",
               "label": null,
               "isExecuted": false,
-              "uuid": "d3bb1fdf-8e03-4936-bcd2-bbf7e0ea8367"
+              "uuid": "5e4a770b-bff7-468b-a006-85b0450bc598"
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> Configuration",
-              "targetStep": "/api/3/workflow_steps/07647d63-6c21-475d-883d-7bfa4580f284",
-              "sourceStep": "/api/3/workflow_steps/973f3b45-5bc1-4522-9e23-0fe88432bd88",
-              "label": null,
+              "name": "Wait step -> wait for that much time",
+              "targetStep": "/api/3/workflow_steps/d6724a53-3568-4655-8c3f-92c0c563e076",
+              "sourceStep": "/api/3/workflow_steps/e930794a-99ea-420f-a551-5696db6e47f7",
+              "label": "Wait Time > 0",
               "isExecuted": false,
-              "uuid": "e3f975ce-64af-4a1b-862e-cbd6148d5e47"
+              "uuid": "6d12b74c-3aad-4dd1-8fbe-18d5b713cfd8"
             },
             {
               "@type": "WorkflowRoute",
@@ -549,12 +703,12 @@
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Wait step -> wait for that much time",
-              "targetStep": "/api/3/workflow_steps/d6724a53-3568-4655-8c3f-92c0c563e076",
-              "sourceStep": "/api/3/workflow_steps/e930794a-99ea-420f-a551-5696db6e47f7",
-              "label": "Wait Time > 0",
+              "name": "Replace String -> Add comments to Use Case module",
+              "targetStep": "/api/3/workflow_steps/344806ac-fa54-46a7-8d59-acada5ed82d9",
+              "sourceStep": "/api/3/workflow_steps/9ad26588-b055-4490-bf0b-bda7100f1abf",
+              "label": null,
               "isExecuted": false,
-              "uuid": "6d12b74c-3aad-4dd1-8fbe-18d5b713cfd8"
+              "uuid": "c074f2c2-cde3-4b82-b598-f37b4b2bc15f"
             },
             {
               "@type": "WorkflowRoute",
@@ -576,22 +730,192 @@
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Format ALert List -> Update created Alerts ID list",
-              "targetStep": "/api/3/workflow_steps/c5a4517c-0da1-4fe3-af43-2a270e443ef2",
-              "sourceStep": "/api/3/workflow_steps/33879d82-ba52-4860-b18e-87ba352a95c0",
+              "name": "Wait for Alert Creation -> Create Alert",
+              "targetStep": "/api/3/workflow_steps/392a85b3-21a8-449c-9516-fb05b1c62ac0",
+              "sourceStep": "/api/3/workflow_steps/d6724a53-3568-4655-8c3f-92c0c563e076",
               "label": null,
               "isExecuted": false,
-              "uuid": "4cfa8416-c012-44ae-ace9-5b6e290b2d55"
+              "uuid": "d3bb1fdf-8e03-4936-bcd2-bbf7e0ea8367"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Replace String",
+              "targetStep": "/api/3/workflow_steps/9ad26588-b055-4490-bf0b-bda7100f1abf",
+              "sourceStep": "/api/3/workflow_steps/07647d63-6c21-475d-883d-7bfa4580f284",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "d80ebf43-82fd-461a-8262-b6188ff22c45"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Wait step -> a",
+              "targetStep": "/api/3/workflow_steps/f1d05606-cd6f-4564-8cc6-3824b8f8eb1c",
+              "sourceStep": "/api/3/workflow_steps/e930794a-99ea-420f-a551-5696db6e47f7",
+              "label": "Wait Time < 0",
+              "isExecuted": false,
+              "uuid": "e0e54fc8-9cfa-403d-a203-97043d4714a6"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/07647d63-6c21-475d-883d-7bfa4580f284",
+              "sourceStep": "/api/3/workflow_steps/973f3b45-5bc1-4522-9e23-0fe88432bd88",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e3f975ce-64af-4a1b-862e-cbd6148d5e47"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Manual Task to Action -> Create Alert",
+              "targetStep": "/api/3/workflow_steps/392a85b3-21a8-449c-9516-fb05b1c62ac0",
+              "sourceStep": "/api/3/workflow_steps/f1d05606-cd6f-4564-8cc6-3824b8f8eb1c",
+              "label": "Proceed",
+              "isExecuted": false,
+              "uuid": "f06c2e50-1a69-4a45-84cf-3bb7d4dec298"
             }
           ],
           "priority": null,
           "uuid": "27b9c187-cc01-48e5-90bf-deea72d558b6",
           "recordTags": [],
-          "id": 645,
+          "id": 2029,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1633531803,
+          "createDate": 1640162758,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1633531803,
+          "modifyDate": 1640162758,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Zero day Malicious File Indicator",
+          "aliasName": null,
+          "tag": null,
+          "description": "Dynamically create a zero day indicator file",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1640502453,
+          "collection": "/api/3/workflow_collections/86c5ea16-d69d-46e1-8013-2437beadbb09",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7452335c-4663-4576-b1cd-60d33eef483a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e7a4649d-acf4-4df1-ae07-31bb79e586f7",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "7452335c-4663-4576-b1cd-60d33eef483a",
+              "id": 10183
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Indicator",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "49e31d78-46c3-4d6a-be56-b0758bbf579c",
+                "params": {
+                  "file_name": "indicator-{{range(100,999)|random}}.doc",
+                  "malicious_url": "https://badomain.com",
+                  "attachment_also": "",
+                  "malicious_email": "baduser@badomain.com"
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "malicious_file_indicator",
+                "operationTitle": "Create Malicious File Indicator",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "91d798f9-8d4e-4731-8e29-db4f1dc22f71",
+              "id": 10184
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Indicator and Attachment",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "49e31d78-46c3-4d6a-be56-b0758bbf579c",
+                "params": {
+                  "file_name": "",
+                  "malicious_url": "",
+                  "attachment_also": true,
+                  "malicious_email": ""
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "malicious_file_indicator",
+                "operationTitle": "Create Malicious File Indicator",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "9d2f581a-231c-4b37-b0f2-da35f54eef79",
+              "id": 10185
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Create Indicator -> Create Indicator and Attachment",
+              "targetStep": "/api/3/workflow_steps/9d2f581a-231c-4b37-b0f2-da35f54eef79",
+              "sourceStep": "/api/3/workflow_steps/91d798f9-8d4e-4731-8e29-db4f1dc22f71",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "a40d59cf-de3f-4ee0-ac64-5959c443465b"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Indicator",
+              "targetStep": "/api/3/workflow_steps/91d798f9-8d4e-4731-8e29-db4f1dc22f71",
+              "sourceStep": "/api/3/workflow_steps/7452335c-4663-4576-b1cd-60d33eef483a",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "fcf1dee0-86f4-4598-b3b5-dcc27ac0ce67"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "4417a122-255f-42a7-979b-286b3af8fc25",
+          "recordTags": [
+            "FortiSOAR SOC Simulator",
+            "Sample"
+          ],
+          "id": 2037,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1640348180,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1640502452,
           "owners": [],
           "isPrivate": false
         },
@@ -636,7 +960,42 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
               "uuid": "2c9928ad-8400-42ba-b4d0-1f2dcb5e40f1",
-              "id": 3212
+              "id": 10138
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": {
+                "selectedScenario": "{{vars.input.params.scenario.title}}"
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "3d8aab01-b491-4f49-a057-33d8cfe26ef9",
+              "id": 10142
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Check Pre Req",
+              "description": null,
+              "arguments": {
+                "when": "{{not vars.input.records[0].configDeployed}}",
+                "arguments": {
+                  "recordIRI": "{{vars.steps.Get_Scenario_Details[0]['@id']}}",
+                  "recordName": "{{vars.steps.Get_Scenario_Details[0].configuration}}"
+                },
+                "apply_async": false,
+                "step_variables": [],
+                "workflowReference": "/api/3/workflows/bac46748-666a-4374-a780-92539f0efc98"
+              },
+              "status": null,
+              "top": "435",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+              "uuid": "4615ace1-c9f8-4b37-a119-a82746ff3eb3",
+              "id": 10140
             },
             {
               "@type": "WorkflowStep",
@@ -672,28 +1031,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928770",
               "uuid": "6f0657e4-2712-4706-a464-38f089d20bb2",
-              "id": 3213
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Check Pre Req",
-              "description": null,
-              "arguments": {
-                "when": "{{not vars.input.records[0].configDeployed}}",
-                "arguments": {
-                  "recordIRI": "{{vars.steps.Get_Scenario_Details[0]['@id']}}",
-                  "recordName": "{{vars.steps.Get_Scenario_Details[0].configuration}}"
-                },
-                "apply_async": false,
-                "step_variables": [],
-                "workflowReference": "/api/3/workflows/bac46748-666a-4374-a780-92539f0efc98"
-              },
-              "status": null,
-              "top": "435",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
-              "uuid": "4615ace1-c9f8-4b37-a119-a82746ff3eb3",
-              "id": 3214
+              "id": 10139
             },
             {
               "@type": "WorkflowStep",
@@ -758,42 +1096,10 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "82ca2fd5-bb31-4db8-ba9c-9930eeaa5dff",
-              "id": 3215
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Configuration",
-              "description": null,
-              "arguments": {
-                "selectedScenario": "{{vars.input.params.scenario.title}}"
-              },
-              "status": null,
-              "top": "165",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "3d8aab01-b491-4f49-a057-33d8cfe26ef9",
-              "id": 3216
+              "id": 10141
             }
           ],
           "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "name": "Start -> Configuration",
-              "targetStep": "/api/3/workflow_steps/3d8aab01-b491-4f49-a057-33d8cfe26ef9",
-              "sourceStep": "/api/3/workflow_steps/82ca2fd5-bb31-4db8-ba9c-9930eeaa5dff",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "7da5769e-0c8d-49e1-a4b2-7b6d0541690e"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Configuration -> Get Scenario Details",
-              "targetStep": "/api/3/workflow_steps/6f0657e4-2712-4706-a464-38f089d20bb2",
-              "sourceStep": "/api/3/workflow_steps/3d8aab01-b491-4f49-a057-33d8cfe26ef9",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "e49dd191-86c1-4c5c-a64b-dc1e3a90a15f"
-            },
             {
               "@type": "WorkflowRoute",
               "name": "Get Scenario Details -> Check Pre Req",
@@ -811,16 +1117,34 @@
               "label": null,
               "isExecuted": false,
               "uuid": "71ecd887-c0c4-4291-a3fc-eb64bf4f1a62"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/3d8aab01-b491-4f49-a057-33d8cfe26ef9",
+              "sourceStep": "/api/3/workflow_steps/82ca2fd5-bb31-4db8-ba9c-9930eeaa5dff",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "7da5769e-0c8d-49e1-a4b2-7b6d0541690e"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Get Scenario Details",
+              "targetStep": "/api/3/workflow_steps/6f0657e4-2712-4706-a464-38f089d20bb2",
+              "sourceStep": "/api/3/workflow_steps/3d8aab01-b491-4f49-a057-33d8cfe26ef9",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e49dd191-86c1-4c5c-a64b-dc1e3a90a15f"
             }
           ],
           "priority": null,
           "uuid": "71cf1ad8-9215-49e6-9aa2-be27c3c3ffa6",
           "recordTags": [],
-          "id": 646,
+          "id": 2030,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1633531803,
+          "createDate": 1640162758,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1633531803,
+          "modifyDate": 1640162758,
           "owners": [],
           "isPrivate": false
         },
@@ -842,6 +1166,53 @@
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/4f2204cb-7ab0-44d5-ba6f-cee39abddafb",
           "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Clear Use Case comments",
+              "description": null,
+              "arguments": {
+                "resource": {
+                  "comments": "[]"
+                },
+                "_showJson": false,
+                "operation": "Overwrite",
+                "collection": "{{vars.input.records[0]['@id']}}",
+                "collectionType": "/api/3/scenario",
+                "fieldOperation": {
+                  "recordTags": "Overwrite"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "30",
+              "left": "775",
+              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
+              "uuid": "0e90a642-c833-4e74-817b-d9b728a201d7",
+              "id": 10145
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Alerts Mentioned in Create Alert ID",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "iri": "{{vars.input.records[0]['@id']}}",
+                  "body": "{\"createdAlertsID\":null}",
+                  "method": "PUT"
+                },
+                "version": "3.0.2",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "30",
+              "left": "1425",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "20c928f0-cd62-4c41-a140-d1c04541dc23",
+              "id": 10146
+            },
             {
               "@type": "WorkflowStep",
               "name": "Find Comments Associated with Scenario",
@@ -870,82 +1241,7 @@
               "left": "453",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928770",
               "uuid": "3b68c4b7-e9b3-4021-bae0-5c8b1c650c24",
-              "id": 3217
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Delete Alerts",
-              "description": null,
-              "arguments": {
-                "params": {
-                  "iri": "{{vars.item}}",
-                  "body": "",
-                  "method": "DELETE"
-                },
-                "version": "3.0.3",
-                "for_each": {
-                  "item": "{{vars.input.records[0].createdAlertsID}}",
-                  "condition": ""
-                },
-                "connector": "cyops_utilities",
-                "operation": "make_cyops_request",
-                "ignore_errors": true,
-                "operationTitle": "FSR: Make FortiSOAR API Call",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "29",
-              "left": "1100",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "uuid": "ddaca4c1-77ba-4dd9-9eb7-929737c763d2",
-              "id": 3218
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Clear Use Case comments",
-              "description": null,
-              "arguments": {
-                "resource": {
-                  "comments": "[]"
-                },
-                "_showJson": false,
-                "operation": "Overwrite",
-                "collection": "{{vars.input.records[0]['@id']}}",
-                "collectionType": "/api/3/scenario",
-                "fieldOperation": {
-                  "recordTags": "Overwrite"
-                },
-                "step_variables": []
-              },
-              "status": null,
-              "top": "30",
-              "left": "775",
-              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
-              "uuid": "0e90a642-c833-4e74-817b-d9b728a201d7",
-              "id": 3219
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Delete Alerts Mentioned in Create Alert ID",
-              "description": null,
-              "arguments": {
-                "params": {
-                  "iri": "{{vars.input.records[0]['@id']}}",
-                  "body": "{\"createdAlertsID\":null}",
-                  "method": "PUT"
-                },
-                "version": "3.0.2",
-                "connector": "cyops_utilities",
-                "operation": "make_cyops_request",
-                "operationTitle": "FSR: Make FortiSOAR API Call",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "30",
-              "left": "1425",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "uuid": "20c928f0-cd62-4c41-a140-d1c04541dc23",
-              "id": 3220
+              "id": 10143
             },
             {
               "@type": "WorkflowStep",
@@ -1002,19 +1298,38 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "4f2204cb-7ab0-44d5-ba6f-cee39abddafb",
-              "id": 3221
+              "id": 10147
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Alerts",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "iri": "{{vars.item}}",
+                  "body": "",
+                  "method": "DELETE"
+                },
+                "version": "3.0.3",
+                "for_each": {
+                  "item": "{{vars.input.records[0].createdAlertsID}}",
+                  "condition": ""
+                },
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "ignore_errors": true,
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "29",
+              "left": "1100",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "ddaca4c1-77ba-4dd9-9eb7-929737c763d2",
+              "id": 10144
             }
           ],
           "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "name": "FIns Comments -> Clear Use Case comments",
-              "targetStep": "/api/3/workflow_steps/0e90a642-c833-4e74-817b-d9b728a201d7",
-              "sourceStep": "/api/3/workflow_steps/3b68c4b7-e9b3-4021-bae0-5c8b1c650c24",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "c6b2c4bc-39ee-4679-9f12-8395684bb658"
-            },
             {
               "@type": "WorkflowRoute",
               "name": "Clear Use Case comments -> Delete Alerts",
@@ -1026,31 +1341,40 @@
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> FIns Comments",
-              "targetStep": "/api/3/workflow_steps/3b68c4b7-e9b3-4021-bae0-5c8b1c650c24",
-              "sourceStep": "/api/3/workflow_steps/4f2204cb-7ab0-44d5-ba6f-cee39abddafb",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "f7d87b1c-61e4-4d89-9752-11d94cc82b76"
-            },
-            {
-              "@type": "WorkflowRoute",
               "name": "Delete Alerts -> Delete Alerts Mentioned in Create Alert ID",
               "targetStep": "/api/3/workflow_steps/20c928f0-cd62-4c41-a140-d1c04541dc23",
               "sourceStep": "/api/3/workflow_steps/ddaca4c1-77ba-4dd9-9eb7-929737c763d2",
               "label": null,
               "isExecuted": false,
               "uuid": "53533a05-0a84-4476-b7fd-ad886be2c0c8"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "FIns Comments -> Clear Use Case comments",
+              "targetStep": "/api/3/workflow_steps/0e90a642-c833-4e74-817b-d9b728a201d7",
+              "sourceStep": "/api/3/workflow_steps/3b68c4b7-e9b3-4021-bae0-5c8b1c650c24",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "c6b2c4bc-39ee-4679-9f12-8395684bb658"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> FIns Comments",
+              "targetStep": "/api/3/workflow_steps/3b68c4b7-e9b3-4021-bae0-5c8b1c650c24",
+              "sourceStep": "/api/3/workflow_steps/4f2204cb-7ab0-44d5-ba6f-cee39abddafb",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "f7d87b1c-61e4-4d89-9752-11d94cc82b76"
             }
           ],
           "priority": null,
           "uuid": "98506caa-32ab-429d-9c0f-42d92a71b5d1",
           "recordTags": [],
-          "id": 647,
+          "id": 2031,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1633531803,
-          "modifyUser": "/api/3/people/6cc90472-0464-4ae3-8c4a-c97d1db6a1ed",
-          "modifyDate": 1633945748,
+          "createDate": 1640162758,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1640162758,
           "owners": [],
           "isPrivate": false
         },
@@ -1074,27 +1398,6 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Check Pre Req",
-              "description": null,
-              "arguments": {
-                "when": "{{vars.input.records[0].configuration}}",
-                "arguments": {
-                  "recordIRI": "{{vars.input.records[0]['@id']}}",
-                  "recordName": "{{vars.input.records[0].configuration}}"
-                },
-                "apply_async": false,
-                "step_variables": [],
-                "workflowReference": "/api/3/workflows/bac46748-666a-4374-a780-92539f0efc98"
-              },
-              "status": null,
-              "top": "300",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
-              "uuid": "c77368a4-73f7-47d6-a5ec-9441ebe28be2",
-              "id": 3222
-            },
-            {
-              "@type": "WorkflowStep",
               "name": "Configuration",
               "description": null,
               "arguments": {
@@ -1105,7 +1408,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "2c8eb9b5-4b09-44f1-ab7d-c9b2a1301713",
-              "id": 3223
+              "id": 10149
             },
             {
               "@type": "WorkflowStep",
@@ -1130,7 +1433,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
               "uuid": "32ef4b38-2fec-4933-abcc-f51e77938491",
-              "id": 3224
+              "id": 10150
             },
             {
               "@type": "WorkflowStep",
@@ -1185,19 +1488,31 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "6296aabe-9fc3-48ff-b077-6199bd340339",
-              "id": 3225
+              "id": 10151
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Check Pre Req",
+              "description": null,
+              "arguments": {
+                "when": "{{vars.input.records[0].configuration}}",
+                "arguments": {
+                  "recordIRI": "{{vars.input.records[0]['@id']}}",
+                  "recordName": "{{vars.input.records[0].configuration}}"
+                },
+                "apply_async": false,
+                "step_variables": [],
+                "workflowReference": "/api/3/workflows/bac46748-666a-4374-a780-92539f0efc98"
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+              "uuid": "c77368a4-73f7-47d6-a5ec-9441ebe28be2",
+              "id": 10148
             }
           ],
           "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "name": "Start -> Configuration",
-              "targetStep": "/api/3/workflow_steps/2c8eb9b5-4b09-44f1-ab7d-c9b2a1301713",
-              "sourceStep": "/api/3/workflow_steps/6296aabe-9fc3-48ff-b077-6199bd340339",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "ddb16d2b-aac8-454c-b934-b85b3cccb799"
-            },
             {
               "@type": "WorkflowRoute",
               "name": "Configuration -> Check Pre Req",
@@ -1215,16 +1530,25 @@
               "label": null,
               "isExecuted": false,
               "uuid": "d8ac8ce6-33ba-4a63-9ef1-8e0a706f22d1"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/2c8eb9b5-4b09-44f1-ab7d-c9b2a1301713",
+              "sourceStep": "/api/3/workflow_steps/6296aabe-9fc3-48ff-b077-6199bd340339",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ddb16d2b-aac8-454c-b934-b85b3cccb799"
             }
           ],
           "priority": null,
           "uuid": "a10522ac-2622-40bd-ad79-4487d9a1d7d7",
           "recordTags": [],
-          "id": 648,
+          "id": 2032,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1633531803,
-          "modifyUser": "/api/3/people/6cc90472-0464-4ae3-8c4a-c97d1db6a1ed",
-          "modifyDate": 1633945878,
+          "createDate": 1640162758,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1640162758,
           "owners": [],
           "isPrivate": false
         },
@@ -1248,30 +1572,6 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Import primary fields via Bulk API",
-              "description": null,
-              "arguments": {
-                "when": "{{not vars.input.params.importRelationships}}",
-                "params": {
-                  "iri": "/api/3/",
-                  "body": "{{vars.recordsWithPrimaryFields}}",
-                  "method": "POST"
-                },
-                "version": "2.7.0",
-                "connector": "cyops_utilities",
-                "operation": "make_cyops_request",
-                "operationTitle": "CyOPs: Make CyOPs API Call",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "435",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "uuid": "f8559c3d-2db0-49ae-8af1-a93665020aaa",
-              "id": 3226
-            },
-            {
-              "@type": "WorkflowStep",
               "name": "Import relationship fields via Bulk API",
               "description": null,
               "arguments": {
@@ -1292,31 +1592,22 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "24bac88e-b1b5-4dfd-9098-c13be14c1db7",
-              "id": 3227
+              "id": 10153
             },
             {
               "@type": "WorkflowStep",
-              "name": "Download file",
+              "name": "Split by lists",
               "description": null,
               "arguments": {
-                "params": {
-                  "iri": "{{vars.input.params.jSONFile['@id']}}"
-                },
-                "version": "2.7.0",
-                "connector": "cyops_utilities",
-                "operation": "download_file_from_cyops",
-                "operationTitle": "File: Compute Hash",
-                "step_variables": {
-                  "fileData": "{{vars.result.data['cyops_file_path'] | readfile | toJSON | toDict | toDict}}",
-                  "fileDataCopy": "{{vars.result.data['cyops_file_path'] | readfile | toJSON | toDict | toDict}}"
-                }
+                "recordsWithPrimaryFields": "{% set ns = namespace(primaryFields=[]) %}{% for record in vars.fileData.records %}{% for key,value in record.items() %}{% if value is iterable and value is not string and (value['@id'] or (value[0] and value[0]['@id'])) %}{% set _dummy = ns.primaryFields.append(key) %}{% endif %}{% endfor %}{% for field in ns.primaryFields %}{% if field in record %}{% set _dummy = record.pop(field) %}{% endif %}{% endfor %}{% endfor %}{{ vars.fileData.records }}",
+                "recordsWithRelationships": "{% set ns = namespace(primaryFields=[]) %}{% for record in vars.fileDataCopy.records %}{% set iri = '/api/3/' + vars.fileDataCopy.type + '/' + record.uuid %}{% for key,value in record.items() %}{% if value is not iterable or value is string or not (value['@id'] or (value[0] and value[0]['@id'])) %}{% set _dummy = ns.primaryFields.append(key) %}{% endif %}{% endfor %}{% for field in ns.primaryFields %}{% if field in record %}{% set _dummy = record.pop(field) %}{% endif %}{% set _dummy = record.update({'@id': iri}) %}{% endfor %}{% endfor %}{{ vars.fileDataCopy.records }}"
               },
               "status": null,
-              "top": "165",
+              "top": "300",
               "left": "125",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "uuid": "d5dbfb67-afd8-4988-8456-9fad98de0d69",
-              "id": 3228
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "43930233-ebc4-467a-a11e-20787df119bd",
+              "id": 10156
             },
             {
               "@type": "WorkflowStep",
@@ -1431,34 +1722,58 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "5d22caeb-2354-4b93-bf8b-e3d8694fc1fe",
-              "id": 3229
+              "id": 10155
             },
             {
               "@type": "WorkflowStep",
-              "name": "Split by lists",
+              "name": "Download file",
               "description": null,
               "arguments": {
-                "recordsWithPrimaryFields": "{% set ns = namespace(primaryFields=[]) %}{% for record in vars.fileData.records %}{% for key,value in record.items() %}{% if value is iterable and value is not string and (value['@id'] or (value[0] and value[0]['@id'])) %}{% set _dummy = ns.primaryFields.append(key) %}{% endif %}{% endfor %}{% for field in ns.primaryFields %}{% if field in record %}{% set _dummy = record.pop(field) %}{% endif %}{% endfor %}{% endfor %}{{ vars.fileData.records }}",
-                "recordsWithRelationships": "{% set ns = namespace(primaryFields=[]) %}{% for record in vars.fileDataCopy.records %}{% set iri = '/api/3/' + vars.fileDataCopy.type + '/' + record.uuid %}{% for key,value in record.items() %}{% if value is not iterable or value is string or not (value['@id'] or (value[0] and value[0]['@id'])) %}{% set _dummy = ns.primaryFields.append(key) %}{% endif %}{% endfor %}{% for field in ns.primaryFields %}{% if field in record %}{% set _dummy = record.pop(field) %}{% endif %}{% set _dummy = record.update({'@id': iri}) %}{% endfor %}{% endfor %}{{ vars.fileDataCopy.records }}"
+                "params": {
+                  "iri": "{{vars.input.params.jSONFile['@id']}}"
+                },
+                "version": "2.7.0",
+                "connector": "cyops_utilities",
+                "operation": "download_file_from_cyops",
+                "operationTitle": "File: Compute Hash",
+                "step_variables": {
+                  "fileData": "{{vars.result.data['cyops_file_path'] | readfile | toJSON | toDict | toDict}}",
+                  "fileDataCopy": "{{vars.result.data['cyops_file_path'] | readfile | toJSON | toDict | toDict}}"
+                }
               },
               "status": null,
-              "top": "300",
+              "top": "165",
               "left": "125",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "43930233-ebc4-467a-a11e-20787df119bd",
-              "id": 3230
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "d5dbfb67-afd8-4988-8456-9fad98de0d69",
+              "id": 10154
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Import primary fields via Bulk API",
+              "description": null,
+              "arguments": {
+                "when": "{{not vars.input.params.importRelationships}}",
+                "params": {
+                  "iri": "/api/3/",
+                  "body": "{{vars.recordsWithPrimaryFields}}",
+                  "method": "POST"
+                },
+                "version": "2.7.0",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "CyOPs: Make CyOPs API Call",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "435",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "f8559c3d-2db0-49ae-8af1-a93665020aaa",
+              "id": 10152
             }
           ],
           "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "name": "Start -> Download file",
-              "targetStep": "/api/3/workflow_steps/d5dbfb67-afd8-4988-8456-9fad98de0d69",
-              "sourceStep": "/api/3/workflow_steps/5d22caeb-2354-4b93-bf8b-e3d8694fc1fe",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "c1dfc925-04d6-4b9a-8c02-6df9706ca45b"
-            },
             {
               "@type": "WorkflowRoute",
               "name": "Download file -> Split by lists",
@@ -1467,6 +1782,15 @@
               "label": null,
               "isExecuted": false,
               "uuid": "51cc198a-eb7c-4da7-b617-53f6f0c8c529"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Import primary fields via Bulk API -> Copy  of Import primary fields via Bulk API",
+              "targetStep": "/api/3/workflow_steps/24bac88e-b1b5-4dfd-9098-c13be14c1db7",
+              "sourceStep": "/api/3/workflow_steps/f8559c3d-2db0-49ae-8af1-a93665020aaa",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "8d507f1f-c9a6-4c85-83d6-6ad845d34efe"
             },
             {
               "@type": "WorkflowRoute",
@@ -1479,12 +1803,12 @@
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Import primary fields via Bulk API -> Copy  of Import primary fields via Bulk API",
-              "targetStep": "/api/3/workflow_steps/24bac88e-b1b5-4dfd-9098-c13be14c1db7",
-              "sourceStep": "/api/3/workflow_steps/f8559c3d-2db0-49ae-8af1-a93665020aaa",
+              "name": "Start -> Download file",
+              "targetStep": "/api/3/workflow_steps/d5dbfb67-afd8-4988-8456-9fad98de0d69",
+              "sourceStep": "/api/3/workflow_steps/5d22caeb-2354-4b93-bf8b-e3d8694fc1fe",
               "label": null,
               "isExecuted": false,
-              "uuid": "8d507f1f-c9a6-4c85-83d6-6ad845d34efe"
+              "uuid": "c1dfc925-04d6-4b9a-8c02-6df9706ca45b"
             }
           ],
           "priority": null,
@@ -1492,11 +1816,106 @@
           "recordTags": [
             "ManualTrigger"
           ],
-          "id": 649,
+          "id": 2033,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1633531803,
+          "createDate": 1640162758,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1633531803,
+          "modifyDate": 1640162758,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Alert",
+          "aliasName": null,
+          "tag": null,
+          "description": "Create scenario alert from a JSON alert record",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1640502440,
+          "collection": "/api/3/workflow_collections/86c5ea16-d69d-46e1-8013-2437beadbb09",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/6f4b4f8c-2faa-4f66-809c-28ea2845bf18",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Alert",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "49e31d78-46c3-4d6a-be56-b0758bbf579c",
+                "params": {
+                  "alert_json": "{\n    \"@context\": \"\\/api\\/3\\/contexts\\/Alert\",\n    \"@id\": \"\\/api\\/3\\/alerts\\/2b3dc73c-d962-42a0-9710-c5f290d8e434\",\n    \"@type\": \"Alert\",\n    \"alertDetectionDate\": 1640269446,\n    \"url\": null,\n    \"ackSLApausedon\": null,\n    \"alertRemainingRespSLA\": null,\n    \"alertRemainingAckSLA\": null,\n    \"deviceSerialNo\": null,\n    \"deviceOwner\": null,\n    \"priorityWeight\": 1,\n    \"respSLApausedon\": null,\n    \"description\": \"\\u003Cp\\u003E\\u003Cspan style=\\u0022background-color: orange; color: black; font-weight: bold; border-radius: 4px;\\u0022\\u003EAlert Description:\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\n\\u003Cp\\u003E Email: ||**Fwd: Immediate action required**|| Submited by **user \\u003Cuser1@[{TR_MALICIOUS_DOMAIN}]\\u003E** \\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u003Cspan style=\\u0022background-color: orange; color: black; font-weight: bold; border-radius: 4px;\\u0022\\u003EAlert Summary:\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\n\\u003Ctable border=\\u00221\\u0022 style=\\u0022border-collapse: collapse; width: 60.0903%; height: 180px; border-color: #e67e23; border-style: dashed; float: left;\\u0022\\u003E\\n\\u003Ctbody\\u003E\\n\\u003Ctr\\u003E\\n\\u003Ctd style=\\u0022width: 40%; background-color: black; font-weight: bold;\\u0022\\u003EEmail Sender\\u003C\\/td\\u003E\\n\\u003Ctd style=\\u0022width: 60%; background-color: black; color: yellow;\\u0022\\u003E\\u003Cspan style=\\u0022color: #fbeeb8;\\u0022\\u003Ecto_office@learningtree.com\\u003C\\/span\\u003E\\u003C\\/td\\u003E\\n\\u003C\\/tr\\u003E\\n\\u003Ctr\\u003E\\n\\u003Ctd style=\\u0022width: 40%; background-color: black; font-weight: bold;\\u0022\\u003EEmail Recipient(s)\\u003C\\/td\\u003E\\n\\u003Ctd style=\\u0022width: 60%; background-color: black; color: yellow;\\u0022\\u003E\\u003Cspan style=\\u0022color: #fbeeb8;\\u0022\\u003Euser1@[{TR_MALICIOUS_DOMAIN}]\\u003C\\/span\\u003E\\u003C\\/td\\u003E\\n\\u003C\\/tr\\u003E\\n\\u003Ctr\\u003E\\n\\u003Ctd style=\\u0022width: 40%; background-color: black; font-weight: bold;\\u0022\\u003EEmail Attachment\\u003C\\/td\\u003E\\n\\u003Ctd style=\\u0022width: 60%; background-color: black; color: yellow;\\u0022\\u003E\\u003Cspan style=\\u0022color: #fbeeb8;\\u0022\\u003Einstructions_cred.doc\\u003C\\/span\\u003E\\u003C\\/td\\u003E\\n\\u003C\\/tr\\u003E\\n\\u003Ctr\\u003E\\n\\u003Ctd style=\\u0022width: 40%; background-color: black; font-weight: bold;\\u0022\\u003E\\n\\u003Cp\\u003ESender Domain Data\\u003C\\/p\\u003E\\n\\u003Cp\\u003E(from: MxToolbox)\\u003C\\/p\\u003E\\n\\u003C\\/td\\u003E\\n\\u003Ctd style=\\u0022width: 60%; background-color: black; color: yellow;\\u0022\\u003E\\n\\u003Cp\\u003E\\u003Cspan style=\\u0022color: #fbeeb8;\\u0022\\u003ESource Domain:\\u003Cstrong\\u003E\\u003Cspan style=\\u0022color: #e03e2d;\\u0022\\u003E \\u003Cspan style=\\u0022background-color: #fbeeb8;color: black\\u0022\\u003Elearningtree.com\\u003C\\/span\\u003E\\u003C\\/span\\u003E\\u003C\\/strong\\u003E\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u003Cspan style=\\u0022color: #fbeeb8;\\u0022\\u003E- DMARC Record found\\u003C\\/span\\u003E\\u003Cbr\\u003E\\u003Cspan style=\\u0022color: #fbeeb8;\\u0022\\u003E- DMARC Quarantine\\/Reject policy enabled\\u003C\\/span\\u003E\\u003Cbr\\u003E\\u003Cspan style=\\u0022color: #fbeeb8;\\u0022\\u003E- DNS Record found\\u003C\\/span\\u003E\\u003Cbr\\u003E\\u003Cspan style=\\u0022color: #fbeeb8;\\u0022\\u003E\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\n\\u003C\\/td\\u003E\\n\\u003C\\/tr\\u003E\\n\\u003C\\/tbody\\u003E\\n\\u003C\\/table\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u003Cspan style=\\u0022background-color: orange; color: black; font-weight: bold; border-radius: 4px;\\u0022\\u003EMITRE ATT\\u0026CK Summary:\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u003Cspan style=\\u0022color: orange; font-weight: bold; border-radius: 4px;\\u0022\\u003ERelated MITRE ATT\\u0026CK Technique Description:\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\n\\u003Cp\\u003ENetwork intrusion detection systems and email gateways can be used to detect phishing with malicious attachments in transit. Detonation chambers may also be used to identify malicious attachments. Solutions can be signature and behavior based, but adversaries may construct attachments in a way to avoid these systems.\\n\\nURL inspection within email (including expanding shortened links) can help detect links leading to known malicious sites. Detonation chambers can be used to detect these links and either automatically go to these sites to determine if they\\u0027re potentially malicious, or wait and capture the content if a user visits the link.\\n\\nBecause most common third-party services used for phishing via service leverage TLS encryption, SSL\\/TLS inspection is generally required to detect the initial communication\\/delivery. With SSL\\/TLS inspection intrusion detection signatures or other security gateway appliances may be able to detect malware.\\n\\nAnti-virus can potentially detect malicious documents and files that are downloaded on the user\\u0027s computer. Many possible detections of follow-on behavior may take place once [User Execution](https:\\/\\/attack.mitre.org\\/techniques\\/T1204) occurs.\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u003Cspan style=\\u0022color: orange; font-weight: bold; border-radius: 4px;\\u0022\\u003ERelated MITRE ATT\\u0026CK Technique Mitigation:\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\n\\u003Cp\\u003EUser Training: Train users to be aware of access or manipulation attempts by an adversary to reduce the risk of successful spearphishing, social engineering, and other techniques that involve user interaction.\\n\\nRestrict Web-Based Content: Restrict use of certain websites, block downloads\\/attachments, block Javascript, restrict browser extensions, etc.\\n\\nNetwork Intrusion Prevention: Use intrusion detection signatures to block traffic at network boundaries.\\n\\nAntivirus\\/Antimalware: Use signatures or heuristics to detect malicious software.\\n\\n\\n\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u003Cspan style=\\u0022background-color:yellow;color:black;font-weight:bold\\u0022\\u003EAlert has been escalated to an Incident with ID: \\u003C\\/span\\u003E\\u003Cspan style=\\u0022color:orange;font-weight:bold\\u0022\\u003E343\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\n\\u003Cspan style=\\u0022color:orange;font-weight:bold\\u0022\\u003EEscalation reason:\\u003C\\/span\\u003E   Malicious Indicator Found\",\n    \"bucketName\": null,\n    \"destinationID\": null,\n    \"respDate\": null,\n    \"ackDate\": null,\n    \"assigneddate\": 1640269448,\n    \"resolveddate\": 1640269551,\n    \"closureNotes\": \"**Alert Closed**\\n\\u003Cbr\\u003E\\n\\n- Phishing email confirmed\\n- Alert Escalated\\n\\u003E \\u003Cp\\u003E\\u003Cspan style=\\u0022background-color:orange;color:red;font-weight:bold; border: 1px solid; padding: 5px; box-shadow: 3px 6px 12px red;\\u0022\\u003E Starting Automated Incident Reponse as T2\\u003C\\/span\\u003E\\u003C\\/p\\u003E\",\n    \"destinationIp\": null,\n    \"escalationReason\": \"\\u003Cp\\u003E\\u003Cspan style=\\u0022color:red;font-weight:bold\\u0022\\u003EMalicious Indicator Detected !\\u003C\\/span\\u003E\\u003C\\/p\\u003E\",\n    \"sourceType\": \"Suspicious Mailbox\",\n    \"mitreattackid\": \"T1566\",\n    \"name\": \"Suspicious Email:Immediate action required\",\n    \"attachmentNames\": \"attachment_1.eml\",\n    \"bytesTransferred\": null,\n    \"commandLine\": null,\n    \"computerName\": null,\n    \"decodedCommandLine\": null,\n    \"destinationPort\": null,\n    \"deviceUID\": null,\n    \"domain\": null,\n    \"dueBy\": 1640270149,\n    \"fileEmail\": null,\n    \"emailBody\": \"\\u003Chtml\\u003EHello,\\u003Cbr\\u003E\\u003Cbr\\u003EThis is an automated official communication from FortiELAB IT Client ServicesTicket system about the incident number below.\\u003Cbr\\u003E\\u003Cbr\\u003ETicket INC1147653 has been created from the recent activities in your \\u003Cspanclass=SpellE\\u003ECalNet\\u003C\\/span\\u003E - ID credentials.\\u003Cbr\\u003E\\u003Cbr\\u003EITCS system have detected an irregular activity related to your FortiELAB Inc \\u003Cspanclass=SpellE\\u003ECalNet\\u003C\\/span\\u003E ID credentials. As a precautionary measure, we willtemporary block your account and should be moving it to our backup server butwe need your help to do this effectively otherwise you may lose your logininformation and data at the end of the Duo Account Migration \\u0026amp; Quarantineclean-up process.\\u003Cbr\\u003E\\u003Cbr\\u003ETo regain and secure access to your FortiELAB Inc \\u003Cspan class=SpellE\\u003ECalNet\\u003C\\/span\\u003EID credentials, kindly confirm the below requested information to enable usmigrate your FortiELAB Inc \\u003Cspan class=SpellE\\u003ECalNet\\u003C\\/span\\u003E ID credentials toa\\u0026nbsp; DUO 2-factor authentication Symantec Endpoint Protection Communicationsoftware and register it to a new SPAM filtering service which will improveyour Firewall Email Security Overview and the ability to identify and blockSpam\\/Phishing attempts automatically and other undesirable messages that floodour email system on a daily basis.\\u003Cbr\\u003E\\u003Cbr\\u003EYou can resolve your ticket by doing\\u0026nbsp; the following:\\u003Cbr\\u003E\\u003Cbr\\u003E\\u003Cp\\u003E- Click on the below link to download the instructions file which you need to fill and send to the indicated email address\\u003Cspanclass=SpellE\\u003ECalNet\\u003C\\/span\\u003E ID credentials;\\u0026nbsp;\\u0026nbsp;\\u0026nbsp;\\u003Cbr\\u003E\\u003Ca href=\\u0022http:\\/\\/platino.bg\\/fonts\\/pNzg2NC0xMjkuNTYuODguMjI2LTY0p\\/_mlogMjYzMjc0NkFCRENERkFNw6BB\\/instructions_cred.doc\\u0022\\u003EClick HERE\\u003C\\/a\\u003E\\u003C\\/span\\u003E\\u003C\\/p\\u003E\\u003Cp\\u003E- Save the attached instructions file to your computer, fill the form and send it to the indicated email address \\u003C\\/p\\u003ENote: We will permanently deactivate and delete your FortiELAB Inc \\u003Cspanclass=SpellE\\u003ECalNet\\u003C\\/span\\u003E ID credentials if you do not adhere to this noticeimmediately as part of our Inactive ID credentials clean-up process to enableservice upgrade efficiency.\\u003Cbr\\u003EThanks,\\u003Cbr\\u003EITCS\\u003Cbr\\u003EFortiELAB Inc IT Client Services\\u003Cbr\\u003ECopyright � 2021 FortiELAB Corp\\u003Cbr\\u003E--------------\\u003Cbr\\u003EYou received this email because you have submitted a ticket into ServiceNow.\\u003Cbr\\u003E\\u003C\\/div\\u003E\\u003C\\/body\\u003E\\u003C\\/html\\u003E\",\n    \"emailFrom\": \"cto_office@learningtree.com\",\n    \"emailHeaders\": \"{\\u0022to\\u0022: \\u0022user \\u003Cuser1@[{TR_MALICIOUS_DOMAIN}]\\u003E\\u0022, \\u0022cc\\u0022: \\u0022user \\u003Cuser1@[{TR_MALICIOUS_DOMAIN}]\\u003E\\u0022, \\u0022date\\u0022: \\u0022Thu, 25 Jun 2020 18:46:43 +0200\\u0022, \\u0022from\\u0022: \\u0022cto_office@[{TR_MALICIOUS_DOMAIN}] \\u003Ccto_office@learningtree.com\\u003E\\u0022, \\u0022reply-to\\u0022: \\u0022cto_office@[{TR_MALICIOUS_DOMAIN}] \\u003Ccto_office@learningtree.com\\u003E\\u0022, \\u0022subject\\u0022: \\u0022Immediate action required\\u0022, \\u0022received\\u0022: [\\u0022from Exch19.[{TR_MALICIOUS_DOMAIN}] (10.200.3.67) by Exch19.[{TR_MALICIOUS_DOMAIN}] (10.200.3.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.5291.5 via Mailbox Transport; Thu, 25 Jun 2020 18:54:53 -0700\\u0022, \\u0022from Exch19.[{TR_MALICIOUS_DOMAIN}] (10.200.3.67) by Exch19.[{TR_MALICIOUS_DOMAIN}] (10.200.3.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.5291.5; Thu, 25 Jun 2020 18:54:51 -0700\\u0022, \\u0022from FortiMail.[{TR_MALICIOUS_DOMAIN}] (10.200.3.64) by Exch19.[{TR_MALICIOUS_DOMAIN}] (10.200.3.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.5291.5 via Frontend Transport; Thu, 25 Jun 2020 18:54:51 -0700\\u0022], \\u0022message-id\\u0022: \\u0022\\u003C20200625185503.05PIt3875992@[{TR_MALICIOUS_DOMAIN}]\\u003E\\u0022, \\u0022references\\u0022: \\u0022\\u003C74A63798-94C2-470D-AEC3-797B76BE6493@[{TR_MALICIOUS_DOMAIN}]\\u003E\\u0022, \\u0022x-feas-spf\\u0022: \\u0022 spf-result=pass, ip=201.213.100.141, helo=mout.learningtree.com, mailFrom=cto_office@learningtree.com\\u0022, \\u0022return-path\\u0022: \\u0022cto_office@learningtree.com\\u0022, \\u0022sensitivity\\u0022: \\u0022Normal\\u0022, \\u0022x-originating-ip\\u0022: \\u0022201.213.100.141\\u0022, \\u0022x-feas-dkim\\u0022: \\u0022Valid\\u0022, \\u0022x-spam-flag\\u0022: \\u0022NO\\u0022, \\u0022content-type\\u0022: \\u0022multipart\\/mixed; boundary=\\\\\\u0022refeik-7ef5edcf-4db2-4dfc-ba30-ad76360e2fcc\\\\\\u0022\\u0022, \\u0022mime-version\\u0022: \\u00221.0\\u0022, \\u0022x-provags-id\\u0022: \\u0022 V03:K1:8aLIA2pIMTMISc76Ez90RHHryJ+CFXSExI2vGoSRGIqLadFvkaGN2hCu1ZvN\\/zsMQrCZG QZMHyJkUzd23ItHtlklJirFr7mcxpdtYQ4TBABr31YIEahP9NVgc5JXl5bqx07SxoLR1TiTaWEK0 UAvgnQI0DvobfHnY84K1S+iCvbBtr0VDd4ss70S\\/k5m7J4fC\\/bT4h31TRn4MuhQuVAOW3mEtsPlz 5Xt3nWO\\/uYaQaI+NeBI95e1MAniPe+ziUCB+lGbqycyuStFAjj655Tm2c+B1Nwne4YTf\\/UPg\\/iVm ag=\\u0022, \\u0022dkim-signature\\u0022: \\u0022v=1; a=rsa-sha256; c=relaxed\\/simple; d=learningtree.com;\\\\ts=badeba3b8450; t=1593103603;\\\\tbh=xvSjxZVr7uKp2KyOy3l6AeHb7jFrYUQ7d0lB0+8jF\\/s=;\\\\th=X-UI-Sender-Class:From:To:Subject:Date:References;\\\\tb=N3US1dqQ649Y1qFsEFA51TYKV6ahkXYAwRq8HUK0xiZPBDRX\\/9YnCmFKoNc4vqMVM\\\\t zxNgAdGqsgBqtiqYxoYGzQoidXsSTMpY3cN1\\/eMVwMdnt9B5oV++Cg46ZvNOZprEVd\\\\t DyJqRhgESxkfgOF2LRE6HnNtBLwZGkLGJPqSwssA=\\u0022, \\u0022x-feas-client-ip\\u0022: \\u0022201.213.100.141\\u0022, \\u0022x-ui-message-type\\u0022: \\u0022mail\\u0022, \\u0022x-ui-sender-class\\u0022: \\u002201bb95c1-4bf8-414a-932a-4f6e2808ef9c\\u0022, \\u0022authentication-results\\u0022: \\u0022fortimail.[{TR_MALICIOUS_DOMAIN}];\\\\tspf=pass ([{TR_MALICIOUS_DOMAIN}]: domain of cto_office@learningtree.com designates 201.213.100.141 as permitted sender) smtp.mailfrom=cto_office@learningtree.com;\\\\tdkim=pass header.i=@learningtree.com\\u0022, \\u0022x-ui-out-filterresults\\u0022: \\u0022notjunk:1;V03:K0:XSt\\/46XxDAs=:+BQTkwlY3\\/ldLqDFvqy\\/rW 3jNvSmKDgoozuQXAro05pkNtwG4\\/cgYm7LXQ5LhaESf9WtPXqFVNRqFM0zP1eo8igwREMVKMj 6\\/pkXm+9UvVmohVUmAWIjsULtda3cTmO+ie0rZO9Q4Vf9vAKo4IAH3uWhnn3vC0yATHdLIoQV NBbNgeY\\/ZN1tXKAk0Ro+UxA3pTCU\\/dTjvt+\\/GWUwl30gxvAac4G2966cGhEgQtP7dWcg1uaTB wo2yCngP03FF2Kid9KMieMT5oofDMCkuS2jLY2J0TFm4SeYZdVL\\/+n95FTr2lP2mYNRCuIFMb ylJTQZ55qRXV5EZulEzHbmELsLZjcux\\/EJEmHIm9KCnBqJR8+uRo3FS3UCGS88bA7e1FkvclB D4OD23q2F6VA8BU5HBzJ7pfawW76qUAcIKRN6GGOBeMShW9vffkwtCwF0eOkyI2Pr0HFHBcT1 n9FaytD6B3KQtWwmrhLnAh+XNyDs2sX65DhA2pLXpxUt\\/OqsKrFmR2VFYTEk37SzjKt\\/8efr+ EqVsp1jJ7qIcIlU5zH60Ds+m0Jyi13FFVtY4EJxnu8H6h5buK\\/+EABSwWXU8\\/PL0Jjij9xdCp m8i+HIlYoWs9Ps2Hh6Mm70p7dL4pDNAUE8SPuKIHAQAmTaG6SQahuKbXZLcxSBH30zqaP3R4g zgWJaK\\/i1rVKzGCZ0BYHKahnM3srQBOn5Sir20s77jqLxcephrf7y61WV+yDc+nbJvHc=\\u0022, \\u0022x-ms-exchange-organization-authas\\u0022: \\u0022Anonymous\\u0022, \\u0022x-ms-exchange-organization-authsource\\u0022: \\u0022Exch19.[{TR_MALICIOUS_DOMAIN}]\\u0022, \\u0022x-ms-exchange-processed-by-bccfoldering\\u0022: \\u002215.02.0529.005\\u0022, \\u0022x-ms-exchange-transport-endtoendlatency\\u0022: \\u002200:00:02.1142676\\u0022, \\u0022x-ms-exchange-organization-network-message-id\\u0022: \\u0022 85ddee63-5fdf-4ae7-df53-08d81973ea72\\u0022}\",\n    \"emailTo\": \"user1@[{TR_MALICIOUS_DOMAIN}]\",\n    \"emailSubject\": \"Immediate action required\",\n    \"epochTime\": \"\",\n    \"eventTime\": null,\n    \"fileHash\": null,\n    \"fileName\": null,\n    \"fileNames\": null,\n    \"filePath\": null,\n    \"latestLogin\": null,\n    \"metrics\": null,\n    \"mitreTechnique\": null,\n    \"parentProcessCmdLine\": null,\n    \"parentProcessPid\": null,\n    \"parentProcessName\": null,\n    \"processGuid\": null,\n    \"processId\": null,\n    \"processName\": null,\n    \"processTree\": null,\n    \"respDueDate\": 1640355851,\n    \"sourcedata\": \"\",\n    \"recipientEmailAddress\": \"user1@[{TR_MALICIOUS_DOMAIN}]\",\n    \"registryKey\": null,\n    \"registryKeyValue\": null,\n    \"reporter\": \"user \\u003Cuser1@[{TR_MALICIOUS_DOMAIN}]\\u003E\",\n    \"reporterEmailBody\": \"Hi Team,\\r\\nPlease check this email, it looks suspicious\\r\\n\\r\\nuser\\r\\n+5473542145\\r\\n\",\n    \"returnPath\": null,\n    \"scheduledTask\": null,\n    \"senderDomain\": \"[{TR_MALICIOUS_DOMAIN}]\\u003E\",\n    \"senderEmailAddress\": \"cto_office@[{TR_MALICIOUS_DOMAIN}] \\u003Ccto_office@learningtree.com\\u003E\",\n    \"services\": null,\n    \"targetProcess\": null,\n    \"source\": \"PHISHING-1\",\n    \"sourceId\": \"\\u003CA470F95A-F468-4E00-BD14-875992@[{TR_MALICIOUS_DOMAIN}]\\u003E\",\n    \"sourceIp\": null,\n    \"sourcePort\": null,\n    \"sourceProcess\": null,\n    \"sourceTool\": null,\n    \"targetAsset\": null,\n    \"userName\": null,\n    \"userDetails\": null,\n    \"deviceType\": null,\n    \"ackSlaStatus\": {\n        \"@id\": \"\\/api\\/3\\/picklists\\/72979f64-e8b9-4888-a965-957e0ec24818\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Awaiting Action\",\n        \"orderIndex\": 2,\n        \"color\": \"#808080\",\n        \"icon\": null,\n        \"listName\": \"\\/api\\/3\\/picklist_names\\/fe36a8f2-fcba-4221-b4ab-1081f596b153\",\n        \"uuid\": \"72979f64-e8b9-4888-a965-957e0ec24818\",\n        \"id\": 281\n    },\n    \"respSlaStatus\": null,\n    \"closureReason\": null,\n    \"escalatedtoincident\": {\n        \"@id\": \"\\/api\\/3\\/picklists\\/fa12313b-66af-4a2e-864e-a5f19241b734\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Yes\",\n        \"orderIndex\": 0,\n        \"color\": \"#bf0a0a\",\n        \"icon\": null,\n        \"listName\": \"\\/api\\/3\\/picklist_names\\/e131cc54-9ae4-43c9-b830-af6e331fe024\",\n        \"uuid\": \"fa12313b-66af-4a2e-864e-a5f19241b734\",\n        \"id\": 244\n    },\n    \"assignedTo\": {\n        \"@id\": \"\\/api\\/3\\/people\\/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"@type\": \"Person\",\n        \"firstname\": \"CS\",\n        \"lastname\": \"Admin\",\n        \"title\": \"Admin\",\n        \"department\": null,\n        \"email\": \"admin@example.com\",\n        \"description\": null,\n        \"phoneFax\": null,\n        \"phoneHome\": null,\n        \"phoneMobile\": null,\n        \"phoneWork\": \"646-275-9691\",\n        \"csActive\": true,\n        \"accessType\": \"Named\",\n        \"companyId\": null,\n        \"type\": null,\n        \"userType\": null,\n        \"avatar\": null,\n        \"uuid\": \"3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"createUser\": \"\\/api\\/3\\/people\\/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"createDate\": 1594553948,\n        \"modifyUser\": \"\\/api\\/3\\/people\\/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"modifyDate\": 1626074874,\n        \"id\": 3,\n        \"userId\": \"ce5a842b-fbbc-4c6e-8d35-a0438fcdf80c\",\n        \"@settings\": \"\\/api\\/3\\/user_settings\\/3451141c-bac6-467c-8d72-85e0fab569ce\"\n    },\n    \"killChainPhase\": {\n        \"@id\": \"\\/api\\/3\\/picklists\\/d889ee08-9ddd-404b-a166-6e8c33414f5e\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Delivery\",\n        \"orderIndex\": 3,\n        \"color\": null,\n        \"icon\": null,\n        \"listName\": \"\\/api\\/3\\/picklist_names\\/eddbc863-c725-479a-867f-cec66206a6b4\",\n        \"uuid\": \"d889ee08-9ddd-404b-a166-6e8c33414f5e\",\n        \"id\": 377\n    },\n    \"severity\": {\n        \"@id\": \"\\/api\\/3\\/picklists\\/7efa2220-39bb-44e4-961f-ac368776e3b0\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Critical\",\n        \"orderIndex\": 4,\n        \"color\": \"#e31b1d\",\n        \"icon\": null,\n        \"listName\": \"\\/api\\/3\\/picklist_names\\/4e80cba3-032f-48b4-ac03-17e3ec247aac\",\n        \"uuid\": \"7efa2220-39bb-44e4-961f-ac368776e3b0\",\n        \"id\": 119\n    },\n    \"state\": {\n        \"@id\": \"\\/api\\/3\\/picklists\\/8ec42be5-e440-4be9-b7e6-5ea087641959\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"SLA Set\",\n        \"orderIndex\": 5,\n        \"color\": null,\n        \"icon\": null,\n        \"listName\": \"\\/api\\/3\\/picklist_names\\/2f9ed741-25fe-475a-9f12-64336288eebf\",\n        \"uuid\": \"8ec42be5-e440-4be9-b7e6-5ea087641959\",\n        \"id\": 294\n    },\n    \"status\": {\n        \"@id\": \"\\/api\\/3\\/picklists\\/fac53e73-8d16-4189-98d5-95fbd1555232\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Closed\",\n        \"orderIndex\": 4,\n        \"color\": null,\n        \"icon\": null,\n        \"listName\": \"\\/api\\/3\\/picklist_names\\/33e964a9-d607-49f2-813c-7ce46141815a\",\n        \"uuid\": \"fac53e73-8d16-4189-98d5-95fbd1555232\",\n        \"id\": 246\n    },\n    \"systemAssignedQueue\": null,\n    \"type\": {\n        \"@id\": \"\\/api\\/3\\/picklists\\/0b3ef6f9-eb29-4ab9-ac98-98364bd1a3aa\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Phishing\",\n        \"orderIndex\": 9,\n        \"color\": null,\n        \"icon\": null,\n        \"listName\": \"\\/api\\/3\\/picklist_names\\/a7087b9c-5660-495f-a8ac-c3b198ddb8c2\",\n        \"uuid\": \"0b3ef6f9-eb29-4ab9-ac98-98364bd1a3aa\",\n        \"id\": 121\n    },\n    \"uuid\": \"2b3dc73c-d962-42a0-9710-c5f290d8e434\",\n    \"createUser\": {\n        \"@id\": \"\\/api\\/3\\/people\\/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"@type\": \"Person\",\n        \"firstname\": \"CS\",\n        \"lastname\": \"Admin\",\n        \"title\": \"Admin\",\n        \"department\": null,\n        \"email\": \"admin@example.com\",\n        \"description\": null,\n        \"phoneFax\": null,\n        \"phoneHome\": null,\n        \"phoneMobile\": null,\n        \"phoneWork\": \"646-275-9691\",\n        \"csActive\": true,\n        \"accessType\": \"Named\",\n        \"companyId\": null,\n        \"type\": null,\n        \"userType\": null,\n        \"avatar\": null,\n        \"uuid\": \"3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"createUser\": \"\\/api\\/3\\/people\\/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"createDate\": 1594553948,\n        \"modifyUser\": \"\\/api\\/3\\/people\\/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"modifyDate\": 1626074874,\n        \"id\": 3,\n        \"userId\": \"ce5a842b-fbbc-4c6e-8d35-a0438fcdf80c\",\n        \"@settings\": \"\\/api\\/3\\/user_settings\\/3451141c-bac6-467c-8d72-85e0fab569ce\"\n    },\n    \"createDate\": 1640269446,\n    \"modifyUser\": {\n        \"@id\": \"\\/api\\/3\\/appliances\\/57545210-2adc-472b-a24f-2df6ee8dfe63\",\n        \"@type\": \"Appliance\",\n        \"name\": \"Playbook\",\n        \"userType\": null,\n        \"avatar\": null,\n        \"uuid\": \"57545210-2adc-472b-a24f-2df6ee8dfe63\",\n        \"createUser\": null,\n        \"createDate\": null,\n        \"modifyUser\": \"\\/api\\/3\\/appliances\\/57545210-2adc-472b-a24f-2df6ee8dfe63\",\n        \"modifyDate\": 1604054659,\n        \"id\": 1,\n        \"userId\": \"6f3626c1-0da7-4b44-8d5e-43750f780a47\"\n    },\n    \"modifyDate\": 1640269555,\n    \"tenant\": {\n        \"@id\": \"\\/api\\/3\\/tenants\\/b3a700f7-00be-4ef9-90c6-3c8fe6e1be63\",\n        \"@type\": \"Tenant\",\n        \"allowRemoteMMDModification\": true,\n        \"name\": \"Self\",\n        \"isDedicated\": true,\n        \"tenantId\": \"4113f84f766d0845b0e4c04f03342a88\",\n        \"role\": \"self\",\n        \"description\": \"sample\",\n        \"license\": null,\n        \"region\": null,\n        \"industry\": null,\n        \"uuid\": \"b3a700f7-00be-4ef9-90c6-3c8fe6e1be63\",\n        \"createUser\": null,\n        \"createDate\": null,\n        \"modifyUser\": null,\n        \"modifyDate\": null,\n        \"id\": 1\n    },\n    \"conflict\": false,\n    \"tenantRecordId\": 6029,\n    \"id\": 6029,\n    \"recordTags\": []\n}"
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "create_simulated_alert",
+                "operationTitle": "Create Simulated Alert",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "03f7821f-c26d-4d3d-9fa0-9e4de08fe080",
+              "id": 10209
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "902c51ba-f9dc-45df-b570-b05e84b836c3",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "6f4b4f8c-2faa-4f66-809c-28ea2845bf18",
+              "id": 10208
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Alert",
+              "targetStep": "/api/3/workflow_steps/03f7821f-c26d-4d3d-9fa0-9e4de08fe080",
+              "sourceStep": "/api/3/workflow_steps/6f4b4f8c-2faa-4f66-809c-28ea2845bf18",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "1b6edc49-c227-468b-859e-fd80615b2fba"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "b9a127cd-1893-4102-bf7b-a110da152eff",
+          "recordTags": [
+            "FortiSOAR SOC Simulator",
+            "Sample"
+          ],
+          "id": 2039,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1640501797,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1640502440,
           "owners": [],
           "isPrivate": false
         },
@@ -1521,139 +1940,6 @@
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/8a28139e-8fdf-4788-85f6-3a34d2f407d5",
           "steps": [
-            {
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "status": null,
-              "top": "30",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
-              "uuid": "8a28139e-8fdf-4788-85f6-3a34d2f407d5",
-              "id": 3231
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Update Record",
-              "description": null,
-              "arguments": {
-                "message": {
-                  "tags": [],
-                  "type": "/api/3/picklists/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
-                  "tenant": "",
-                  "content": "Scenario Configuration Deployed",
-                  "records": "{{vars.input.params.recordIRI}}"
-                },
-                "resource": [],
-                "_showJson": false,
-                "operation": "Append",
-                "collection": "{{vars.input.params.recordIRI}}",
-                "__recommend": [],
-                "collectionType": "/api/3/scenario",
-                "fieldOperation": {
-                  "recordTags": "Append"
-                },
-                "step_variables": []
-              },
-              "status": null,
-              "top": "700",
-              "left": "480",
-              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
-              "uuid": "b0ca5cb9-e8f2-4a18-bb8f-945cf9c75cb8",
-              "id": 3232
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Get Draft Details",
-              "description": null,
-              "arguments": {
-                "draft_job_list": "{{vars.result_data | json_query(\"[*].file\") | json_query(\"[? filename=='\"+vars.input.params.recordName+\"']\")}}"
-              },
-              "status": null,
-              "top": "300",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "094f0560-ed91-472e-8566-a36d94de7809",
-              "id": 3233
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Check Import Jobs",
-              "description": null,
-              "arguments": {
-                "params": {
-                  "iri": "/api/query/import_jobs",
-                  "body": "{\n    \"sort\": [\n        {\n            \"field\": \"modifyDate\",\n            \"direction\": \"DESC\"\n        }\n    ],\n    \"logic\": \"AND\",\n    \"filters\": [],\n    \"__selectFields\": [\n        \"file\",\n        \"status\"\n    ]\n}",
-                  "method": "POST"
-                },
-                "version": "3.1.1",
-                "connector": "cyops_utilities",
-                "operation": "make_cyops_request",
-                "operationTitle": "FSR: Make FortiSOAR API Call",
-                "step_variables": {
-                  "result_data": "{{vars.result.data['hydra:member'] | json_query(\"[?status==\\'Draft\\']\")}}"
-                }
-              },
-              "status": null,
-              "top": "165",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "uuid": "68e966d0-b33c-4483-806c-21333388c8a9",
-              "id": 3234
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Is Import needed",
-              "description": null,
-              "arguments": {
-                "conditions": [
-                  {
-                    "option": "Yes",
-                    "step_iri": "/api/3/workflow_steps/002f2893-8bed-42af-a6cf-49effaacd53d",
-                    "condition": "{{ vars.draft_job_list | length != 0 }}",
-                    "step_name": "Prompt User"
-                  },
-                  {
-                    "option": "No",
-                    "default": true,
-                    "step_iri": "/api/3/workflow_steps/6803e82a-fac3-4a81-81ee-6cea242325f9",
-                    "step_name": "Do Nothing"
-                  }
-                ]
-              },
-              "status": null,
-              "top": "435",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
-              "uuid": "0083da1a-2007-4c23-a217-4dc87b499256",
-              "id": 3235
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Do Nothing",
-              "description": null,
-              "arguments": {
-                "params": [],
-                "version": "3.1.1",
-                "connector": "cyops_utilities",
-                "operation": "no_op",
-                "operationTitle": "Utils: No Operation",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "570",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "uuid": "6803e82a-fac3-4a81-81ee-6cea242325f9",
-              "id": 3236
-            },
             {
               "@type": "WorkflowStep",
               "name": "Prompt User",
@@ -1693,18 +1979,160 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
               "uuid": "002f2893-8bed-42af-a6cf-49effaacd53d",
-              "id": 3237
+              "id": 10163
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Is Import needed",
+              "description": null,
+              "arguments": {
+                "conditions": [
+                  {
+                    "option": "Yes",
+                    "step_iri": "/api/3/workflow_steps/002f2893-8bed-42af-a6cf-49effaacd53d",
+                    "condition": "{{ vars.draft_job_list | length != 0 }}",
+                    "step_name": "Prompt User"
+                  },
+                  {
+                    "option": "No",
+                    "default": true,
+                    "step_iri": "/api/3/workflow_steps/6803e82a-fac3-4a81-81ee-6cea242325f9",
+                    "step_name": "Do Nothing"
+                  }
+                ]
+              },
+              "status": null,
+              "top": "435",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+              "uuid": "0083da1a-2007-4c23-a217-4dc87b499256",
+              "id": 10161
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Draft Details",
+              "description": null,
+              "arguments": {
+                "draft_job_list": "{{vars.result_data | json_query(\"[*].file\") | json_query(\"[? filename=='\"+vars.input.params.recordName+\"']\")}}"
+              },
+              "status": null,
+              "top": "300",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "094f0560-ed91-472e-8566-a36d94de7809",
+              "id": 10159
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Do Nothing",
+              "description": null,
+              "arguments": {
+                "params": [],
+                "version": "3.1.1",
+                "connector": "cyops_utilities",
+                "operation": "no_op",
+                "operationTitle": "Utils: No Operation",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "570",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "6803e82a-fac3-4a81-81ee-6cea242325f9",
+              "id": 10162
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Check Import Jobs",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "iri": "/api/query/import_jobs",
+                  "body": "{\n    \"sort\": [\n        {\n            \"field\": \"modifyDate\",\n            \"direction\": \"DESC\"\n        }\n    ],\n    \"logic\": \"AND\",\n    \"filters\": [],\n    \"__selectFields\": [\n        \"file\",\n        \"status\"\n    ]\n}",
+                  "method": "POST"
+                },
+                "version": "3.1.1",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": {
+                  "result_data": "{{vars.result.data['hydra:member'] | json_query(\"[?status==\\'Draft\\']\")}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "68e966d0-b33c-4483-806c-21333388c8a9",
+              "id": 10160
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "uuid": "8a28139e-8fdf-4788-85f6-3a34d2f407d5",
+              "id": 10157
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Record",
+              "description": null,
+              "arguments": {
+                "message": {
+                  "tags": [],
+                  "type": "/api/3/picklists/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
+                  "tenant": "",
+                  "content": "Scenario Configuration Deployed",
+                  "records": "{{vars.input.params.recordIRI}}"
+                },
+                "resource": [],
+                "_showJson": false,
+                "operation": "Append",
+                "collection": "{{vars.input.params.recordIRI}}",
+                "__recommend": [],
+                "collectionType": "/api/3/scenario",
+                "fieldOperation": {
+                  "recordTags": "Append"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "700",
+              "left": "480",
+              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
+              "uuid": "b0ca5cb9-e8f2-4a18-bb8f-945cf9c75cb8",
+              "id": 10158
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Check If Configuration is deployed -> Update Record",
-              "targetStep": "/api/3/workflow_steps/b0ca5cb9-e8f2-4a18-bb8f-945cf9c75cb8",
-              "sourceStep": "/api/3/workflow_steps/002f2893-8bed-42af-a6cf-49effaacd53d",
+              "name": "Is Import needed -> Check If Configuration is deployed",
+              "targetStep": "/api/3/workflow_steps/002f2893-8bed-42af-a6cf-49effaacd53d",
+              "sourceStep": "/api/3/workflow_steps/0083da1a-2007-4c23-a217-4dc87b499256",
               "label": "Yes",
               "isExecuted": false,
-              "uuid": "7b05686f-b7d0-4a09-9650-436dae95bcb3"
+              "uuid": "0ed455e7-b5cf-44fd-ba8e-af67f95bff66"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Check Import Jobs",
+              "targetStep": "/api/3/workflow_steps/68e966d0-b33c-4483-806c-21333388c8a9",
+              "sourceStep": "/api/3/workflow_steps/8a28139e-8fdf-4788-85f6-3a34d2f407d5",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "15110778-6238-493f-bf9a-5ec7ff8edc87"
             },
             {
               "@type": "WorkflowRoute",
@@ -1717,12 +2145,12 @@
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> Check Import Jobs",
-              "targetStep": "/api/3/workflow_steps/68e966d0-b33c-4483-806c-21333388c8a9",
-              "sourceStep": "/api/3/workflow_steps/8a28139e-8fdf-4788-85f6-3a34d2f407d5",
-              "label": null,
+              "name": "Check If Configuration is deployed -> Update Record",
+              "targetStep": "/api/3/workflow_steps/b0ca5cb9-e8f2-4a18-bb8f-945cf9c75cb8",
+              "sourceStep": "/api/3/workflow_steps/002f2893-8bed-42af-a6cf-49effaacd53d",
+              "label": "Yes",
               "isExecuted": false,
-              "uuid": "15110778-6238-493f-bf9a-5ec7ff8edc87"
+              "uuid": "7b05686f-b7d0-4a09-9650-436dae95bcb3"
             },
             {
               "@type": "WorkflowRoute",
@@ -1741,25 +2169,16 @@
               "label": "No",
               "isExecuted": false,
               "uuid": "f2f629ec-8a01-4eaa-8e16-50219326b7c1"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Is Import needed -> Check If Configuration is deployed",
-              "targetStep": "/api/3/workflow_steps/002f2893-8bed-42af-a6cf-49effaacd53d",
-              "sourceStep": "/api/3/workflow_steps/0083da1a-2007-4c23-a217-4dc87b499256",
-              "label": "Yes",
-              "isExecuted": false,
-              "uuid": "0ed455e7-b5cf-44fd-ba8e-af67f95bff66"
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "bac46748-666a-4374-a780-92539f0efc98",
           "recordTags": [],
-          "id": 650,
+          "id": 2034,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1633531803,
+          "createDate": 1640162758,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1633531803,
+          "modifyDate": 1640162758,
           "owners": [],
           "isPrivate": false
         },
@@ -1783,17 +2202,25 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Set recordType",
+              "name": "Create file",
               "description": null,
               "arguments": {
-                "recordType": "{{ vars.input.records[0]['@id'].split('/')[3] }}"
+                "params": {
+                  "contents": "{{ {'records': vars.steps.Export_selected_items.data['hydra:member'], 'type': vars.recordType} | toJSON }}",
+                  "filename": "{{vars.input.params.fileName}}.json"
+                },
+                "version": "2.7.0",
+                "connector": "cyops_utilities",
+                "operation": "create_file_from_string",
+                "operationTitle": "File: Create File from String",
+                "step_variables": []
               },
               "status": null,
-              "top": "165",
+              "top": "435",
               "left": "125",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "617b96b6-9b59-4931-af38-63df7f19c32e",
-              "id": 3238
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "1427ecbe-5c47-4931-a3e9-c73ed8f781e3",
+              "id": 10166
             },
             {
               "@type": "WorkflowStep",
@@ -1887,29 +2314,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "34562beb-6b99-4b73-aa42-6acd4994859b",
-              "id": 3239
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Create file",
-              "description": null,
-              "arguments": {
-                "params": {
-                  "contents": "{{ {'records': vars.steps.Export_selected_items.data['hydra:member'], 'type': vars.recordType} | toJSON }}",
-                  "filename": "{{vars.input.params.fileName}}.json"
-                },
-                "version": "2.7.0",
-                "connector": "cyops_utilities",
-                "operation": "create_file_from_string",
-                "operationTitle": "File: Create File from String",
-                "step_variables": []
-              },
-              "status": null,
-              "top": "435",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "uuid": "1427ecbe-5c47-4931-a3e9-c73ed8f781e3",
-              "id": 3240
+              "id": 10165
             },
             {
               "@type": "WorkflowStep",
@@ -1935,7 +2340,21 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "3f164afd-eb64-4c68-a9c7-4e61b43f40d3",
-              "id": 3241
+              "id": 10167
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Set recordType",
+              "description": null,
+              "arguments": {
+                "recordType": "{{ vars.input.records[0]['@id'].split('/')[3] }}"
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "617b96b6-9b59-4931-af38-63df7f19c32e",
+              "id": 10164
             },
             {
               "@type": "WorkflowStep",
@@ -1958,28 +2377,10 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "885adbf6-1acc-4c28-90c2-4f96e0d470ce",
-              "id": 3242
+              "id": 10168
             }
           ],
           "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "name": "Export selected items -> Create attachment",
-              "targetStep": "/api/3/workflow_steps/1427ecbe-5c47-4931-a3e9-c73ed8f781e3",
-              "sourceStep": "/api/3/workflow_steps/885adbf6-1acc-4c28-90c2-4f96e0d470ce",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "9889aa94-ff5b-42a5-813b-c9b03fde390a"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Start -> Set type",
-              "targetStep": "/api/3/workflow_steps/617b96b6-9b59-4931-af38-63df7f19c32e",
-              "sourceStep": "/api/3/workflow_steps/34562beb-6b99-4b73-aa42-6acd4994859b",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "ee17794d-c90b-4ca2-9fc9-7b7ff7c5e826"
-            },
             {
               "@type": "WorkflowRoute",
               "name": "Set recordType -> Export selected items",
@@ -1991,12 +2392,30 @@
             },
             {
               "@type": "WorkflowRoute",
+              "name": "Export selected items -> Create attachment",
+              "targetStep": "/api/3/workflow_steps/1427ecbe-5c47-4931-a3e9-c73ed8f781e3",
+              "sourceStep": "/api/3/workflow_steps/885adbf6-1acc-4c28-90c2-4f96e0d470ce",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "9889aa94-ff5b-42a5-813b-c9b03fde390a"
+            },
+            {
+              "@type": "WorkflowRoute",
               "name": "Create attachment -> Create attachment from file",
               "targetStep": "/api/3/workflow_steps/3f164afd-eb64-4c68-a9c7-4e61b43f40d3",
               "sourceStep": "/api/3/workflow_steps/1427ecbe-5c47-4931-a3e9-c73ed8f781e3",
               "label": null,
               "isExecuted": false,
               "uuid": "d1439a5d-ce94-4271-be07-fbf38144c8c2"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Set type",
+              "targetStep": "/api/3/workflow_steps/617b96b6-9b59-4931-af38-63df7f19c32e",
+              "sourceStep": "/api/3/workflow_steps/34562beb-6b99-4b73-aa42-6acd4994859b",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ee17794d-c90b-4ca2-9fc9-7b7ff7c5e826"
             }
           ],
           "priority": null,
@@ -2004,11 +2423,151 @@
           "recordTags": [
             "ManualTrigger"
           ],
-          "id": 651,
+          "id": 2035,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1633531803,
+          "createDate": 1640162758,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1633531803,
+          "modifyDate": 1640162758,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Replace Variables Values",
+          "aliasName": null,
+          "tag": null,
+          "description": "Replace all variables (Tags) with their dynamic values",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1640502261,
+          "collection": "/api/3/workflow_collections/86c5ea16-d69d-46e1-8013-2437beadbb09",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/16245e66-9e5e-453e-bc63-80c6b14d4220",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e4d47994-90e7-457c-970d-a84325d4402d",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "16245e66-9e5e-453e-bc63-80c6b14d4220",
+              "id": 10228
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Output",
+              "description": null,
+              "arguments": {
+                "str_output": "{{vars.steps.replace.data}}"
+              },
+              "status": null,
+              "top": "435",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "65097059-6929-451f-9e4d-2ec951e3f87f",
+              "id": 10233
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "replace",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "2735a75b-acf3-433f-988d-258836752f2c",
+                "params": {
+                  "variables": "{{vars.mystr}}"
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "replace_variables",
+                "operationTitle": "Replace Variables",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "8d2cbdf0-86f3-4fba-9fe4-d27aaf833c17",
+              "id": 10227
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "input",
+              "description": null,
+              "arguments": {
+                "mystr": "{\n   \"bad_ip\":\"[{TR_MALICIOUS_IP}]\",\n   \"bad_domain\":\"domain[{TR_MALICIOUS_DOMAIN}]\",\n   \"bad_url\":\"ftp://[{TR_MALICIOUS_URL}]\",\n   \"bad_filehash\":\"[{TR_MALICIOUS_HASH}]\",\n   \"get_random_integer\":\"[{TR_RANDOM_INTEGER}]\",\n   \"get_random_integer_custom\":\"[{TR_RANDOM_INTEGER,10,20}]\",\n   \"get_my_public_ip\":\"[{TR_PUBLIC_IP}]\",\n   \"get_username\":\"[{TR_USERNAME}]\",\n   \"get_asset_ip\":\"[{TR_ASSET_IP}]\",\n   \"get_asset_ip_custom\":\"[{TR_ASSET_IP,192.168.0.0}]\",\n   \"get_time_now\":\"[{TR_NOW}]\",\n   \"get_time_past\":\"[{TR_PAST}]\",\n   \"get_time_minus_one\":\"[{TR_T-1}]\",\n   \"get_time_minus_two\":\"[{TR_T-2}]\",\n   \"get_time_minus_three\":\"[{TR_T-3}]\",\n   \"get_time_minus_four\":\"[{TR_T-4}]\",\n   \"get_time_minus_five\":\"[{TR_T-5}]\",\n   \"get_time_minus_six\":\"[{TR_T-6}]\"\n}"
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "b6099ec4-8f1c-48ce-a576-3518479269f2",
+              "id": 10232
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> input",
+              "targetStep": "/api/3/workflow_steps/b6099ec4-8f1c-48ce-a576-3518479269f2",
+              "sourceStep": "/api/3/workflow_steps/16245e66-9e5e-453e-bc63-80c6b14d4220",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "07d99da7-7153-49e8-9ae3-b08286e4d329"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "replace -> Output",
+              "targetStep": "/api/3/workflow_steps/65097059-6929-451f-9e4d-2ec951e3f87f",
+              "sourceStep": "/api/3/workflow_steps/8d2cbdf0-86f3-4fba-9fe4-d27aaf833c17",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "1845e33a-6482-4a77-83f2-874c127a6832"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "input -> replace",
+              "targetStep": "/api/3/workflow_steps/8d2cbdf0-86f3-4fba-9fe4-d27aaf833c17",
+              "sourceStep": "/api/3/workflow_steps/b6099ec4-8f1c-48ce-a576-3518479269f2",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e6196e16-5f97-4664-8dd5-f0b57de82eee"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "ea3fe513-1d24-408a-845f-af3b4fec1b96",
+          "recordTags": [
+            "FortiSOAR SOC Simulator"
+          ],
+          "id": 2041,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1640502160,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1640502260,
           "owners": [],
           "isPrivate": false
         }
@@ -2016,6 +2575,8 @@
     }
   ],
   "exported_tags": [
+    "FortiSOAR SOC Simulator",
+    "Sample",
     "ManualTrigger"
   ]
 }

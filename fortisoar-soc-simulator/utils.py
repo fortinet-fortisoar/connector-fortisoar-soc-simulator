@@ -1,8 +1,9 @@
 from connectors.core.connector import get_logger, ConnectorError
 from integrations.requests_auth import get_requests_auth
+from integrations.crudhub import maybe_json_or_raise
 from cshmac.requests import HmacAuth
 from django.conf import settings
-import requests, argparse, textwrap, json, random, time, os, csv, re
+import requests, argparse, textwrap, json, random, time, os, csv, re, jmespath
 from .constants import CONNECTOR_VERSION
 
 logger = get_logger('soc_scenario')  
@@ -89,23 +90,23 @@ def _create_import_job(file_iri):
     return job_id
 
 def load_threat():
-    #These URLs require review
+    #These URLs require review. bad_domains updated @1.0.9
     threat_data = [{
         "name": "bad_ip",
-        "url": "https://malsilo.gitlab.io/feeds/dumps/ip_list.txt",
+        "url": "https://otx.alienvault.com/otxapi/indicators/?type=IPv4&include_inactive=0&sort=-modified&q=modified:<24h&page=1&limit=100",
         "filename": "malicious_ips"
     }, {
         "name": "bad_hashes",
-        "url": "https://cybercrime-tracker.net/ccamlist.php",
+        "url": "https://otx.alienvault.com/otxapi/indicators/?type=FileHash-SHA256&include_inactive=0&sort=-modified&q=modified:<24h&page=1&limit=100",
         "filename": "malware_hashes"
     },
     {
         "name": "bad_domains",
-        "url": "https://malsilo.gitlab.io/feeds/dumps/domain_list.txt",
+        "url": "https://otx.alienvault.com/otxapi/indicators/?type=domain&include_inactive=0&sort=-modified&q=modified:%3C1d&page=1&limit=100",
         "filename": "malicious_domains"
     }, {
         "name": "bad_urls",
-        "url": "https://openphish.com/feed.txt",
+        "url": "https://otx.alienvault.com/otxapi/indicators/?type=URL&include_inactive=0&sort=-modified&q=modified:<24h&page=1&limit=100",
         "filename": "malicious_urls"
     }
     ]
@@ -113,28 +114,12 @@ def load_threat():
     for item in threat_data:
         lines=''
         try:
-            response = requests.get(url=item.get('url'))
+            response_json = maybe_json_or_raise(requests.get(url=item.get('url')))
             file_path = "{}{}.txt".format(threat_intel_dir, item.get('filename'))
-
-            if item.get('name') == "bad_ip" or item.get('name') == "bad_domains":
-                decoded_content = response.content.decode('utf-8')
-                cr = csv.reader(decoded_content.splitlines(), delimiter=',')
-                for skip in range(16):
-                    next(cr)
-                bad_list = list(cr)
-                if item.get('name') == 'bad_domains':
-                    for row in bad_list:
-                        lines+=row[2]+'\n'
-                elif item.get('name') == 'bad_ip':
-                    for row in bad_list:
-                        lines+=row[2].split(':')[0]+'\n'
-
-                with open(file_path, 'w+') as f:
-                    f.write(lines)
-
-            elif item.get('name') == "bad_hashes" or item.get('name') == "bad_urls":
-                with open(file_path, 'wb') as f:
-                    f.write(response.content)
+            indicator_values = jmespath.search('results[].indicator',response_json)
+            logger.debug('Indicators type:{} Values {}'.format(item.get('name'),indicator_values))
+            with open(file_path, 'w') as f:
+                f.write('\n'.join(indicator_values))
 
         except Exception as e:
             logger.error( "Error downloading threat intelligence data : {}".format(e) )

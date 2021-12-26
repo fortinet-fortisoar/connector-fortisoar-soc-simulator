@@ -237,9 +237,18 @@ While creating scenario add following in 'steps section' . Replace values at app
 </p> 
 
 Here "sourceIp": "{TR_MALICIOUS_IP}"   << this is an example set a placeholder where you want to change value of , here, sourceIP dynamically when demo record is created 
-
-  
-
 Refer for more details about content pack: https://fusecommunity.fortinet.com/viewdocument/incident-response-content-pack?CommunityKey=9f1420e8-e3c6-4535-8cae-3fa714da66d8&tab=librarydocuments 
 
- 
+# 1.0.9 Change log:
+
+## New Action: Create Malicious File Indicator:
+
+- Creates a Zero day Docx file as a file indicator
+- Zero day means each run the resulting file has a unique hash code
+- The action accepts email and URL parameters to be embedded within the file, users can then extract it via **File Content Extraction connector**
+
+## New Action: Create Simulated Alert
+
+- A dynamically generated Alert based on alert JSON definition, users can copy an alert defintion from FortiSOAR WebUI such as a response of 'GET /api/3/alerts/387dc349-b0c6-4317-a44c-0a83f7637cb5', replace some static entries such as timestamps, IP addresses, usernames ...etc with variables (Tags) so the action would replace these variables and then creates a new simulated alert
+
+## New Indicators source: Moved all indicartor downloads to AlienVault OTX

@@ -141,7 +141,81 @@
                     "value": ""
                 }
             ]
-        }
+        },
+        {
+            "operation": "malicious_file_indicator",
+            "title": "Create Malicious File Indicator",
+            "category": "",
+            "annotation": "malicious_file_indicator",
+            "description": "Create a new Malicious file Indicator to be used within a scenario",
+            "enabled": true,
+            "output_schema": {},
+            "parameters": [
+                {
+                    "title": "File Name",
+                    "tooltip": "The file name the indicator will have",
+                    "required": false,
+                    "editable": true,
+                    "visible": true,
+                    "type": "text",
+                    "name": "file_name",
+                    "value": ""
+                },
+                {
+                    "title": "Embedded Malicious URL",
+                    "tooltip": "A malicious URL to embed within the docx file to be extracted as an indicator",
+                    "required": false,
+                    "editable": true,
+                    "visible": true,
+                    "type": "text",
+                    "name": "malicious_url",
+                    "placeholder":"https://badurl.com/badpage",
+                    "value": ""
+                },
+                {
+                    "title": "Embedded Malicious Email",
+                    "tooltip": "A malicious Email to embed within the docx file to be extracted as an indicator",
+                    "required": false,
+                    "editable": true,
+                    "visible": true,
+                    "type": "text",
+                    "name": "malicious_email",
+                    "placeholder":"badactor@bad-domain.com",
+                    "value": ""
+                },                                
+                {
+                    "title": "Also Create Attachment",
+                    "tooltip":"Create an attachment file as well when creating the indicator file",
+                    "required": false,
+                    "editable": true,
+                    "visible": true,
+                    "type": "checkbox",
+                    "name": "attachment_also",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "operation": "create_simulated_alert",
+            "title": "Create Simulated Alert",
+            "category": "",
+            "annotation": "create_simulated_alert",
+            "description": "Create a new simulated alert based on alert data JSON. it supports dynamic values lookup",
+            "enabled": true,
+            "output_schema": {},
+            "parameters": [
+                {
+                    "title": "Alert Data",
+                    "tooltip":"Alert JSON Data which you can copy paste from any FortiSOAR alert using a browser Development Tools",
+                    "required": true,
+                    "editable": true,
+                    "visible": true,
+                    "type": "textarea",
+                    "name": "alert_json",
+                    "value": ""
+                }
+            ]
+        }         
     ],
     "cs_approved": false,
     "cs_compatible": true,
