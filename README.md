@@ -1,10 +1,17 @@
 # FortiSOAR SOC Simulator 
 
-  
+The FortiSOAR SOC Simulator connector is used to run Use Case simulations. a Use case simulation (Scenario) has the below design principles:
 
-The FortiSOAR SOC Simulator connector is used to create various scenarios. To configure this connector, open the FortiSOAR SOC Simulator Connector and in its "Configuration > Page" enter the following values for the configuration parameters   
+- A simulation starts with a record (Typically an alert) having the same data the record has when it is created via the ingestion process. This will guarantee all subsequent workflow would work the same regardless whether the source of the record is a simulation or a live environment data
+- Optionally, It should be possible to run a simulation in either automated way, so all playbooks will be trigger automatically or a manual way where the user has to use the WebUI to trigger them. To achieve this a simple method below could be used:
+  - All actual playbooks should be created with a referenced trigger
+  - Each actual playbook would have two parent playbooks, one with a manual trigger and anotherone automated (onCreate/onUpdate)
+  - A simulation can use a record attribute (such as: SOURCE TYPE in Alerts) value to decide whether subsequent playbooks will run automatically or not (manually triggered then)
+- The simulation should always indicate via the Workspace comments what is the **next step** to guide users running the simulation in the workflow
+- Try to always to leverage existing solution pack to accomplish tasks, if a bug is detected, it can be reported in the issues section of the corresponding solution pack
 
-  
+
+To configure this connector, open the FortiSOAR SOC Simulator Connector and in its "Configuration > Page" enter the following values for the configuration parameters   
 
 - **Configuration Name**: Provide a name for this configuration and you can optionally mark this configuration as the “Default Configuration”.  
 
@@ -237,22 +244,4 @@ While creating scenario add following in 'steps section' . Replace values at app
 </p> 
 
 Here "sourceIp": "{TR_MALICIOUS_IP}"   << this is an example set a placeholder where you want to change value of , here, sourceIP dynamically when demo record is created 
-Refer for more details about content pack: https://fusecommunity.fortinet.com/viewdocument/incident-response-content-pack?CommunityKey=9f1420e8-e3c6-4535-8cae-3fa714da66d8&tab=librarydocuments 
-
-# 1.0.9 Change log:
-
-## New Action: Create Malicious File Indicator:
-
-- Creates a Zero day Docx file as a file indicator
-- Zero day means each run the resulting file has a unique hash code
-- The action accepts email and URL parameters to be embedded within the file, users can then extract it via **File Content Extraction connector**
-
-## New Action: Create Simulated Alert
-
-- A dynamically generated Alert based on alert JSON definition, users can copy an alert defintion from FortiSOAR WebUI such as a response of 'GET /api/3/alerts/387dc349-b0c6-4317-a44c-0a83f7637cb5', replace some static entries such as timestamps, IP addresses, usernames ...etc with variables (Tags) so the action would replace these variables and then creates a new simulated alert
-
-## New Indicators source: Moved all indicartor downloads to AlienVault OTX
-
-## Variables (Tags) now accept parameters
-
-- Variables such as TR_RANDOM_INTEGER, can now be written as: TR_RANDOM_INTEGER,10,20 so the value of the variable will be a random # between 10 and 20, similarily TR_ASSET_IP can now take a network address so its value will be a random IP from that subnet, exp: TR_ASSET_IP, would yield: 192.168.100.X, X between 2,240
+Refer for more details about content pack: https://fusecommunity.fortinet.com/viewdocument/incident-response-content-pack?CommunityKey=9f1420e8-e3c6-4535-8cae-3fa714da66d8&tab=librarydocuments
