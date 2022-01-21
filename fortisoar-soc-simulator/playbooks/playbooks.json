@@ -6,13 +6,13 @@
       "name": "Sample - FortiSOAR SOC Simulator - 1.0.8",
       "description": "Sample playbooks for \"FortiSOAR SOC Simulator\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/21c18c14-c3b1-44ac-ba0b-23d20a61b15b",
+      "image": "/api/3/images/3e65de19-8821-4979-9dce-3278d27cecaa",
       "uuid": "86c5ea16-d69d-46e1-8013-2437beadbb09",
-      "id": 188,
+      "id": 190,
       "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "createDate": 1640162758,
+      "createDate": 1641142098,
       "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "modifyDate": 1640162758,
+      "modifyDate": 1641142098,
       "recordTags": [],
       "workflows": [
         {
@@ -53,7 +53,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "031c940d-b8d1-4d43-ad57-a1f9de70c7d5",
-              "id": 10223
+              "id": 10259
             },
             {
               "@type": "WorkflowStep",
@@ -80,7 +80,7 @@
               "left": "300",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "3f5e0f8a-54cd-4daf-9818-f2293cea5d98",
-              "id": 10217
+              "id": 10260
             },
             {
               "@type": "WorkflowStep",
@@ -104,7 +104,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "ee73095d-dad1-478d-af69-ec0714e1e900",
-              "id": 10214
+              "id": 10261
             },
             {
               "@type": "WorkflowStep",
@@ -128,7 +128,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "fcc9bb1d-1e39-4417-8c84-ea4ce4a68a29",
-              "id": 10224
+              "id": 10262
             },
             {
               "@type": "WorkflowStep",
@@ -150,7 +150,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "fec67978-899d-42bd-ae4a-63f2c5e4e02c",
-              "id": 10215
+              "id": 10263
             }
           ],
           "routes": [
@@ -197,11 +197,11 @@
             "FortiSOAR SOC Simulator",
             "Sample"
           ],
-          "id": 2040,
-          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1640501805,
-          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640502469,
+          "id": 2048,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1641142098,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -240,7 +240,7 @@
               "left": "480",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "07647d63-6c21-475d-883d-7bfa4580f284",
-              "id": 10133
+              "id": 10264
             },
             {
               "@type": "WorkflowStep",
@@ -254,7 +254,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "33879d82-ba52-4860-b18e-87ba352a95c0",
-              "id": 10128
+              "id": 10265
             },
             {
               "@type": "WorkflowStep",
@@ -283,7 +283,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
               "uuid": "344806ac-fa54-46a7-8d59-acada5ed82d9",
-              "id": 10136
+              "id": 10266
             },
             {
               "@type": "WorkflowStep",
@@ -396,7 +396,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/2597053c-e718-44b4-8394-4d40fe26d357",
               "uuid": "392a85b3-21a8-449c-9516-fb05b1c62ac0",
-              "id": 10126
+              "id": 10267
             },
             {
               "@type": "WorkflowStep",
@@ -432,7 +432,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928770",
               "uuid": "8a4d5d53-0f00-49a9-bd99-d1444ec02fca",
-              "id": 10131
+              "id": 10268
             },
             {
               "@type": "WorkflowStep",
@@ -446,7 +446,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
               "uuid": "973f3b45-5bc1-4522-9e23-0fe88432bd88",
-              "id": 10132
+              "id": 10269
             },
             {
               "@type": "WorkflowStep",
@@ -469,7 +469,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "9ad26588-b055-4490-bf0b-bda7100f1abf",
-              "id": 10127
+              "id": 10270
             },
             {
               "@type": "WorkflowStep",
@@ -487,7 +487,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
               "uuid": "9fe2e735-c7a9-4716-8bf8-930610721d18",
-              "id": 10129
+              "id": 10271
             },
             {
               "@type": "WorkflowStep",
@@ -506,7 +506,7 @@
               "left": "825",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "b0c4732c-307d-476d-b54a-d05a9ef63678",
-              "id": 10137
+              "id": 10272
             },
             {
               "@type": "WorkflowStep",
@@ -530,7 +530,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
               "uuid": "c5a4517c-0da1-4fe3-af43-2a270e443ef2",
-              "id": 10130
+              "id": 10273
             },
             {
               "@type": "WorkflowStep",
@@ -550,7 +550,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/6832e556-b9c7-497a-babe-feda3bd27dbf",
               "uuid": "d6724a53-3568-4655-8c3f-92c0c563e076",
-              "id": 10135
+              "id": 10274
             },
             {
               "@type": "WorkflowStep",
@@ -564,7 +564,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "d9a1118c-5a92-4f56-9400-9c90f0e33a3e",
-              "id": 10125
+              "id": 10275
             },
             {
               "@type": "WorkflowStep",
@@ -597,7 +597,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
               "uuid": "e930794a-99ea-420f-a551-5696db6e47f7",
-              "id": 10124
+              "id": 10276
             },
             {
               "@type": "WorkflowStep",
@@ -634,7 +634,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
               "uuid": "f1d05606-cd6f-4564-8cc6-3824b8f8eb1c",
-              "id": 10134
+              "id": 10277
             }
           ],
           "routes": [
@@ -777,11 +777,11 @@
           "priority": null,
           "uuid": "27b9c187-cc01-48e5-90bf-deea72d558b6",
           "recordTags": [],
-          "id": 2029,
+          "id": 2049,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1640162758,
+          "createDate": 1641142098,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1640162758,
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -828,7 +828,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "7452335c-4663-4576-b1cd-60d33eef483a",
-              "id": 10183
+              "id": 10278
             },
             {
               "@type": "WorkflowStep",
@@ -855,7 +855,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "91d798f9-8d4e-4731-8e29-db4f1dc22f71",
-              "id": 10184
+              "id": 10279
             },
             {
               "@type": "WorkflowStep",
@@ -882,7 +882,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "9d2f581a-231c-4b37-b0f2-da35f54eef79",
-              "id": 10185
+              "id": 10280
             }
           ],
           "routes": [
@@ -911,11 +911,11 @@
             "FortiSOAR SOC Simulator",
             "Sample"
           ],
-          "id": 2037,
-          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1640348180,
-          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640502452,
+          "id": 2050,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1641142098,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -960,7 +960,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
               "uuid": "2c9928ad-8400-42ba-b4d0-1f2dcb5e40f1",
-              "id": 10138
+              "id": 10281
             },
             {
               "@type": "WorkflowStep",
@@ -974,7 +974,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "3d8aab01-b491-4f49-a057-33d8cfe26ef9",
-              "id": 10142
+              "id": 10282
             },
             {
               "@type": "WorkflowStep",
@@ -995,7 +995,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
               "uuid": "4615ace1-c9f8-4b37-a119-a82746ff3eb3",
-              "id": 10140
+              "id": 10283
             },
             {
               "@type": "WorkflowStep",
@@ -1031,7 +1031,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928770",
               "uuid": "6f0657e4-2712-4706-a464-38f089d20bb2",
-              "id": 10139
+              "id": 10284
             },
             {
               "@type": "WorkflowStep",
@@ -1096,7 +1096,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "82ca2fd5-bb31-4db8-ba9c-9930eeaa5dff",
-              "id": 10141
+              "id": 10285
             }
           ],
           "routes": [
@@ -1140,11 +1140,11 @@
           "priority": null,
           "uuid": "71cf1ad8-9215-49e6-9aa2-be27c3c3ffa6",
           "recordTags": [],
-          "id": 2030,
+          "id": 2051,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1640162758,
+          "createDate": 1641142098,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1640162758,
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -1188,7 +1188,7 @@
               "left": "775",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
               "uuid": "0e90a642-c833-4e74-817b-d9b728a201d7",
-              "id": 10145
+              "id": 10286
             },
             {
               "@type": "WorkflowStep",
@@ -1211,7 +1211,7 @@
               "left": "1425",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "20c928f0-cd62-4c41-a140-d1c04541dc23",
-              "id": 10146
+              "id": 10287
             },
             {
               "@type": "WorkflowStep",
@@ -1241,7 +1241,7 @@
               "left": "453",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928770",
               "uuid": "3b68c4b7-e9b3-4021-bae0-5c8b1c650c24",
-              "id": 10143
+              "id": 10288
             },
             {
               "@type": "WorkflowStep",
@@ -1298,7 +1298,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "4f2204cb-7ab0-44d5-ba6f-cee39abddafb",
-              "id": 10147
+              "id": 10289
             },
             {
               "@type": "WorkflowStep",
@@ -1326,7 +1326,7 @@
               "left": "1100",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "ddaca4c1-77ba-4dd9-9eb7-929737c763d2",
-              "id": 10144
+              "id": 10290
             }
           ],
           "routes": [
@@ -1370,11 +1370,11 @@
           "priority": null,
           "uuid": "98506caa-32ab-429d-9c0f-42d92a71b5d1",
           "recordTags": [],
-          "id": 2031,
+          "id": 2052,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1640162758,
+          "createDate": 1641142098,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1640162758,
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -1408,7 +1408,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "2c8eb9b5-4b09-44f1-ab7d-c9b2a1301713",
-              "id": 10149
+              "id": 10291
             },
             {
               "@type": "WorkflowStep",
@@ -1433,7 +1433,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
               "uuid": "32ef4b38-2fec-4933-abcc-f51e77938491",
-              "id": 10150
+              "id": 10292
             },
             {
               "@type": "WorkflowStep",
@@ -1488,7 +1488,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "6296aabe-9fc3-48ff-b077-6199bd340339",
-              "id": 10151
+              "id": 10293
             },
             {
               "@type": "WorkflowStep",
@@ -1509,7 +1509,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
               "uuid": "c77368a4-73f7-47d6-a5ec-9441ebe28be2",
-              "id": 10148
+              "id": 10294
             }
           ],
           "routes": [
@@ -1544,11 +1544,11 @@
           "priority": null,
           "uuid": "a10522ac-2622-40bd-ad79-4487d9a1d7d7",
           "recordTags": [],
-          "id": 2032,
+          "id": 2053,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1640162758,
+          "createDate": 1641142098,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1640162758,
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -1592,7 +1592,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "24bac88e-b1b5-4dfd-9098-c13be14c1db7",
-              "id": 10153
+              "id": 10295
             },
             {
               "@type": "WorkflowStep",
@@ -1607,7 +1607,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "43930233-ebc4-467a-a11e-20787df119bd",
-              "id": 10156
+              "id": 10296
             },
             {
               "@type": "WorkflowStep",
@@ -1722,7 +1722,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "5d22caeb-2354-4b93-bf8b-e3d8694fc1fe",
-              "id": 10155
+              "id": 10297
             },
             {
               "@type": "WorkflowStep",
@@ -1746,7 +1746,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "d5dbfb67-afd8-4988-8456-9fad98de0d69",
-              "id": 10154
+              "id": 10298
             },
             {
               "@type": "WorkflowStep",
@@ -1770,7 +1770,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "f8559c3d-2db0-49ae-8af1-a93665020aaa",
-              "id": 10152
+              "id": 10299
             }
           ],
           "routes": [
@@ -1816,11 +1816,11 @@
           "recordTags": [
             "ManualTrigger"
           ],
-          "id": 2033,
+          "id": 2054,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1640162758,
+          "createDate": 1641142098,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1640162758,
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -1864,7 +1864,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "03f7821f-c26d-4d3d-9fa0-9e4de08fe080",
-              "id": 10209
+              "id": 10300
             },
             {
               "@type": "WorkflowStep",
@@ -1891,7 +1891,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "6f4b4f8c-2faa-4f66-809c-28ea2845bf18",
-              "id": 10208
+              "id": 10301
             }
           ],
           "routes": [
@@ -1911,11 +1911,11 @@
             "FortiSOAR SOC Simulator",
             "Sample"
           ],
-          "id": 2039,
-          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1640501797,
-          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640502440,
+          "id": 2055,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1641142098,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -1979,7 +1979,7 @@
               "left": "475",
               "stepType": "/api/3/workflow_step_types/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
               "uuid": "002f2893-8bed-42af-a6cf-49effaacd53d",
-              "id": 10163
+              "id": 10302
             },
             {
               "@type": "WorkflowStep",
@@ -2006,7 +2006,7 @@
               "left": "300",
               "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
               "uuid": "0083da1a-2007-4c23-a217-4dc87b499256",
-              "id": 10161
+              "id": 10303
             },
             {
               "@type": "WorkflowStep",
@@ -2020,7 +2020,7 @@
               "left": "300",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "094f0560-ed91-472e-8566-a36d94de7809",
-              "id": 10159
+              "id": 10304
             },
             {
               "@type": "WorkflowStep",
@@ -2039,7 +2039,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "6803e82a-fac3-4a81-81ee-6cea242325f9",
-              "id": 10162
+              "id": 10305
             },
             {
               "@type": "WorkflowStep",
@@ -2064,7 +2064,7 @@
               "left": "300",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "68e966d0-b33c-4483-806c-21333388c8a9",
-              "id": 10160
+              "id": 10306
             },
             {
               "@type": "WorkflowStep",
@@ -2082,7 +2082,7 @@
               "left": "300",
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
               "uuid": "8a28139e-8fdf-4788-85f6-3a34d2f407d5",
-              "id": 10157
+              "id": 10307
             },
             {
               "@type": "WorkflowStep",
@@ -2112,7 +2112,7 @@
               "left": "480",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
               "uuid": "b0ca5cb9-e8f2-4a18-bb8f-945cf9c75cb8",
-              "id": 10158
+              "id": 10308
             }
           ],
           "routes": [
@@ -2174,11 +2174,11 @@
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "bac46748-666a-4374-a780-92539f0efc98",
           "recordTags": [],
-          "id": 2034,
+          "id": 2056,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1640162758,
+          "createDate": 1641142098,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1640162758,
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         },
@@ -2220,7 +2220,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "1427ecbe-5c47-4931-a3e9-c73ed8f781e3",
-              "id": 10166
+              "id": 10309
             },
             {
               "@type": "WorkflowStep",
@@ -2314,7 +2314,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "34562beb-6b99-4b73-aa42-6acd4994859b",
-              "id": 10165
+              "id": 10310
             },
             {
               "@type": "WorkflowStep",
@@ -2340,7 +2340,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "3f164afd-eb64-4c68-a9c7-4e61b43f40d3",
-              "id": 10167
+              "id": 10311
             },
             {
               "@type": "WorkflowStep",
@@ -2354,7 +2354,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "617b96b6-9b59-4931-af38-63df7f19c32e",
-              "id": 10164
+              "id": 10312
             },
             {
               "@type": "WorkflowStep",
@@ -2377,7 +2377,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "885adbf6-1acc-4c28-90c2-4f96e0d470ce",
-              "id": 10168
+              "id": 10313
             }
           ],
           "routes": [
@@ -2423,11 +2423,240 @@
           "recordTags": [
             "ManualTrigger"
           ],
-          "id": 2035,
+          "id": 2057,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1640162758,
+          "createDate": 1641142098,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1640162758,
+          "modifyDate": 1641142098,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Phishing Alert",
+          "aliasName": null,
+          "tag": null,
+          "description": "Create scenario alert from a JSON alert record",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1642767858,
+          "collection": "/api/3/workflow_collections/86c5ea16-d69d-46e1-8013-2437beadbb09",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/c64c7968-8dfa-4ea8-bb1a-5b9ec1f103d7",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Malicious URL",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "b423463f-1312-4339-8ee2-f40194445e72",
+                "params": {
+                  "random": true
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "bad_url",
+                "operationTitle": "Fetch Malicious URL",
+                "pickFromTenant": false,
+                "step_variables": {
+                  "malicious_url": "{{vars.result.data}}"
+                }
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "1cf1f334-075d-4b3b-9877-c3a3493201bd",
+              "id": 12938
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Attachment",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "b423463f-1312-4339-8ee2-f40194445e72",
+                "params": {
+                  "file_name": "Password_Update_Guide_{{range(1111,9999)|random}}.docx",
+                  "malicious_url": "{{vars.malicious_url}}",
+                  "attachment_also": "",
+                  "malicious_email": "cto_office@fortielab.com"
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "malicious_file_indicator",
+                "operationTitle": "Create Malicious File Indicator",
+                "pickFromTenant": false,
+                "step_variables": {
+                  "create_malicious_file_result": "{{vars.result.data}}"
+                }
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "492dbded-5f90-404d-aec0-63d7192a1997",
+              "id": 12935
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Malicious Email Data",
+              "description": null,
+              "arguments": {
+                "malicious_email_alert_json": "{\n    \"@context\": \"/api/3/contexts/Alert\",\n    \"@id\": \"/api/3/alerts/fd420999-01ed-44cb-ba98-178b95fcc070\",\n    \"@type\": \"Alert\",\n    \"vulnerabilitySeverity\": null,\n    \"ackSLApausedon\": null,\n    \"alertRemainingRespSLA\": null,\n    \"alertRemainingAckSLA\": null,\n    \"deviceSerialNo\": null,\n    \"deviceOwner\": null,\n    \"priorityWeight\": 1,\n    \"bucketName\": null,\n    \"alertDetectionDate\": 1640865003,\n    \"destinationID\": null,\n    \"respSLApausedon\": null,\n    \"mitreattackid\": null,\n    \"mitreTechnique\": null,\n    \"respDate\": null,\n    \"ackDate\": null,\n    \"assigneddate\": 1640865005,\n    \"resolveddate\": null,\n    \"closureNotes\": null,\n    \"escalationReason\": null,\n    \"sourceType\": null,\n    \"name\": \"Fw: Vulnerability Patching Instructions\",\n    \"attachmentNames\": null,\n    \"bytesTransferred\": null,\n    \"commandLine\": null,\n    \"computerName\": null,\n    \"decodedCommandLine\": null,\n    \"description\": null,\n    \"destinationIp\": null,\n    \"destinationPort\": null,\n    \"deviceUID\": null,\n    \"domain\": null,\n    \"dueBy\": null,\n    \"fileEmail\": null,\n    \"emailBody\": \"<p><html><head>\\n<meta http-equiv=\\\"Content-Type\\\" content=\\\"text/html; charset=utf-8\\\"></head><body><div style=\\\"font-family: Verdana;font-size: 12.0px;\\\"><div>\\n<div>All,</div>\\n\\n<div>A Critical vulnerability has been found in our internal HR application,&nbsp;we have reasons to think it has been exploited by cybercriminals to slteel the identity of our employees.</div>\\n\\n<div><strong><span style=\\\"background-color:#ff0000;\\\">All Employees </span></strong>are required to change their passwords immediately. You can use <a href=\\\"{{vars.malicious_url}}\\\">&lt;&lt;This Link&gt;&gt;</a>&nbsp;or the attached guide to update your credentials</div><br><br><br><br><div>Regards,<br>Office of the CTO</div>\\n\\n<div>&nbsp;</div>\\n\\n<div>&nbsp;</div>\\n\\n<div>_______________________________________</div>\\n\\n<div><span style=\\\"font-size:8px;\\\">Please note that this message and any attachments may contain confidential and proprietary material and information and are intended only for the use of the intended recipient(s). If you are not the intended recipient, you are hereby notified that any review, use, disclosure, dissemination, distribution or copying of this message and any attachments is strictly prohibited. If you have received this email in error, please immediately notify the sender and destroy this e-mail and any attachments and all copies, whether electronic or printed. Please also note that any views, opinions, conclusions or commitments expressed in this message are those of the individual sender and do not necessarily reflect the views of fortielab, Inc., its affiliates, and emails are not binding on fortielab and only a writing manually signed by fortielab's General Counsel can be a binding commitment of fortielab to fortielab's customers or partners. Thank you.</span></div>\\n</div></div></body></html></p>\",\n    \"emailFrom\": \"cto_office@fortielab.com\",\n    \"emailHeaders\": \"{\\\"to\\\": \\\"asmith@fortielab.com\\\", \\\"date\\\": \\\"<<TR_FORMATTED_TIME>>\\\", \\\"from\\\": \\\"cto_office@fortielab.com\\\", \\\"subject\\\": \\\"Fw: Vulnerability Patching Instructions\\\", \\\"received\\\": [\\\"from Exch19.fortielab.com (10.222.248.67) by Exch19.fortielab.com (10.222.248.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.529.5 via Mailbox Transport; Thu, 30 Dec 2021 12:28:52 +0100\\\", \\\"from Exch19.fortielab.com (10.222.248.67) by Exch19.fortielab.com (10.222.248.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.529.5; Thu, 30 Dec 2021 12:28:45 +0100\\\", \\\"from FortiMail.fortielab.com (10.222.248.64) by Exch19.fortielab.com (10.222.248.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.529.5 via Frontend Transport; Thu, 30 Dec 2021 12:28:45 +0100\\\", \\\"from mout.<<TR_MALICIOUS_DOMAIN>> (mout.<<TR_MALICIOUS_DOMAIN>> [212.227.15.19])\\\\tby FortiMail.fortielab.com  with ESMTP id 1BUBSim7011052-1BUBSim9011052\\\\t(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)\\\\tfor <asmith@fortielab.com>; Thu, 30 Dec 2021 12:28:44 +0100\\\", \\\"from [94.206.17.9] ([94.206.17.9]) by web-mail.<<TR_MALICIOUS_DOMAIN>> (3c-app-mailcom-bs09.server.lan [172.19.170.177]) (via HTTP); Thu, 30 Dec 2021 12:28:44 +0100\\\"], \\\"message-id\\\": \\\" <trinity-b0a59a02-90e3-492b-9a53-b3cb5b731dba-1640863<<TR_RANDOM_INTEGER,100000,999999>>@3c-app-mailcom-bs09>\\\", \\\"return-path\\\": \\\"cto_office@<<TR_MALICIOUS_DOMAIN>>\\\", \\\"sensitivity\\\": \\\"Normal\\\", \\\"x-spam-flag\\\": \\\"NO\\\", \\\"content-type\\\": \\\"multipart/mixed; boundary=\\\\\\\"abmob-61f3bba5-7345-4f26-b3b5-dd1f2f756898\\\\\\\"\\\", \\\"mime-version\\\": \\\"1.0\\\", \\\"x-provags-id\\\": \\\" V03:K1:fzttCS/6NwfGL8txFlNhtT+4ih7HuMPUmyhGd5BjhaRiaeaPF5ErpcQKXq4oxHU1zLl35 sTK8yUCaLWb4fXaLgV/HrfO8t/MWyStur/AVJDHnRaL5qYB3VtryogihQYZMIb3PE3Gvz9UqLYbc GhBuMLpeA9nuFF9nSus6yTBc7SZMjlwGKlBCyClkLO/yEe1Cw/eb5zF2Rrns5kmDjUG5vdWIgVNe 4geYwFHE8y+W4XyPO+JhnU5856rPehUcBlpmxqo1H8if2n2bS+uEfldmYXwDmsg34dflu2jYUTTd Q8=\\\", \\\"dkim-signature\\\": \\\"v=1; a=rsa-sha256; c=relaxed/simple; d=<<TR_MALICIOUS_DOMAIN>>;\\\\ts=badeba3b8450; t=1640863724;\\\\tbh=yw27rBIzkEOvfXFitD89pJWu6ehM8hzj4ioTfQoKFBo=;\\\\th=X-UI-Sender-Class:From:To:Subject:Date;\\\\tb=bIUv5JkOtaSGjQk1iX4/OYLeGUzIrioNE3toFNeJi4AhH2MmTWmqc1bj7Co2pEz7o\\\\t aiYPy4nOEXddqMaQU+Bs/sjeU5K4bHjQvszj0CuEnLMIgpvpeKaAz+h6sf6o4ohb20\\\\t n6EptPc0VeYbz3ycunovmcYGzkLj+ZaiPpcSK7nk=\\\", \\\"x-fe-policy-id\\\": \\\"0:1:1:SYSTEM\\\", \\\"x-ui-sender-class\\\": \\\"01bb95c1-4bf8-414a-932a-4f6e2808ef9c\\\", \\\"x-ui-out-filterresults\\\": \\\"notjunk:1;V03:K0:uiAuZ/zk7hs=:G2MLnE2/MFkNLI7bnlVxjG tYTaisrcaE3NwSsYOrmxp41OA0MGV6Zuin7IuSiVI6oj1kMCD/kTu42n0boXprRnWcfipzcEk OUyI/v+1A7eTbsendRSJr2AvO3X9FvbSSXg24Wir3O6f0w2SiiaGbAQwaq9k+ZlApFqkODUfE 0vp2RAC8lxFxHNixoxHHvpNk4rkpegxVFgrcfF1fjgyEhpwVM1YBvDNwWQ4XVK34LB4bLTteE wi6vFsSi/kHM0UDekDZUfM5qQ1mWxRes2copfjQ3uL+Z8ZcNgKRBlOeBkt2W71w/WrnTmqbt1 z+HKtLhBkxzcSwm124u9RsyNiIkY5tGkR7D1oGqZQ0npVBECim/QWs2fQ8r4jp4EgTqOrbJt+ RO/KO6HhF2lDcxn27K9Th/yfjtF4QdWE5FZ6mQV26Sd6Ae2HyG4XwxXW+wUJQIVn73VYregJ9 tq7XQ/GimMkBO+G7LRPzOKcbw6QiucfPjT1FxLnLWj1l6dJlGgHSKVtR7Ooo3xRpIWm+fPt3+ nzlQd2ou+52xVR0H7e2HY1YtW3OlYpShTOMOdiW/9UEZOnPo3RJOQs8keHXyvUUqWwVvrkfMs ukoxwCOVk2Uvk6Y62AeuCgdz6UfF1vg81n/jyzxnZ/Vn7yiG8KO28rhuPFzgG3q5IEmHgeKIi 1VC8uygXZL80QjTKr/1agP3ok9aRLfsHR2eJGpwOCILHcYoXp4ijuP6A6DEUl9pwu3W/ILMLj Igki0du3JCCCeKfKmd3oHLFqoOu6F90uVwtTYil4u7Dj8OA5dpg7B8LCU/78thRrNkMH4Zqxz cRVSDJU\\\", \\\"x-ms-exchange-organization-authas\\\": \\\"Anonymous\\\", \\\"x-ms-exchange-organization-authsource\\\": \\\"Exch19.fortielab.com\\\", \\\"x-ms-exchange-processed-by-bccfoldering\\\": \\\"15.02.0529.005\\\", \\\"x-ms-exchange-transport-endtoendlatency\\\": \\\"00:00:07.2446325\\\", \\\"x-ms-exchange-organization-network-message-id\\\": \\\" <<TR_RANDOM_INTEGER,100000,999999>>9b-87d4-46c7-a229-08d9cb878a5c\\\"}\",\n    \"emailTo\": \"asmith@fortielab.com\",\n    \"emailSubject\": \"Fw: Vulnerability Patching Instructions\",\n    \"epochTime\": null,\n    \"eventTime\": null,\n    \"fileHash\": \"\",\n    \"fileName\": null,\n    \"fileNames\": \"\",\n    \"filePath\": null,\n    \"latestLogin\": null,\n    \"metrics\": null,\n    \"parentProcessCmdLine\": null,\n    \"parentProcessPid\": null,\n    \"parentProcessName\": null,\n    \"processGuid\": null,\n    \"processId\": null,\n    \"processName\": null,\n    \"processTree\": null,\n    \"respDueDate\": null,\n    \"sourcedata\": \"{\\\"body\\\": {\\\"html\\\": \\\"<html><head>\\\\n<meta http-equiv=\\\\\\\"Content-Type\\\\\\\" content=\\\\\\\"text/html; charset=utf-8\\\\\\\"></head><body><div style=\\\\\\\"font-family: Verdana;font-size: 12.0px;\\\\\\\"><div>\\\\n<div>All,</div>\\\\n\\\\n<div>A Critical vulnerability has been found in our internal HR application,&nbsp;we have reasons to think it has been exploited by cybercriminals to slteel the identity of our employees.</div>\\\\n\\\\n<div><strong><span style=\\\\\\\"background-color:#ff0000;\\\\\\\">All Employees </span></strong>are required to change their passwords immediately. You can use <a href=\\\\\\\"http://badurlk.com\\\\\\\">&lt;&lt;This Link&gt;&gt;</a>&nbsp;or the attached guide to update your credentials</div>\\\\n\\\\n<div>Office of the CTO</div>\\\\n\\\\n<div>&nbsp;</div>\\\\n\\\\n<div>&nbsp;</div>\\\\n\\\\n<div>_______________________________________</div>\\\\n\\\\n<div><span style=\\\\\\\"font-size:8px;\\\\\\\">Please note that this message and any attachments may contain confidential and proprietary material and information and are intended only for the use of the intended recipient(s). If you are not the intended recipient, you are hereby notified that any review, use, disclosure, dissemination, distribution or copying of this message and any attachments is strictly prohibited. If you have received this email in error, please immediately notify the sender and destroy this e-mail and any attachments and all copies, whether electronic or printed. Please also note that any views, opinions, conclusions or commitments expressed in this message are those of the individual sender and do not necessarily reflect the views of fortielab, Inc., its affiliates, and emails are not binding on fortielab and only a writing manually signed by fortielab's General Counsel can be a binding commitment of fortielab to fortielab's customers or partners. Thank you.</span></div>\\\\n</div></div></body></html>\\\", \\\"json\\\": null, \\\"text\\\": \\\"\\\"}, \\\"file\\\": \\\"d6d8463ec02942af83fc25d90c7ddfae\\\", \\\"headers\\\": {\\\"to\\\": \\\"asmith@fortielab.com\\\", \\\"date\\\": \\\"Thu, 30 Dec 2021 12:28:44 +0100\\\", \\\"from\\\": \\\"cto_office@fortielab.com\\\", \\\"subject\\\": \\\"Fw: Vulnerability Patching Instructions\\\", \\\"received\\\": [\\\"from Exch19.fortielab.com (10.222.248.67) by Exch19.fortielab.com (10.222.248.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.529.5 via Mailbox Transport; Thu, 30 Dec 2021 12:28:52 +0100\\\", \\\"from Exch19.fortielab.com (10.222.248.67) by Exch19.fortielab.com (10.222.248.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.529.5; Thu, 30 Dec 2021 12:28:45 +0100\\\", \\\"from FortiMail.fortielab.com (10.222.248.64) by Exch19.fortielab.com (10.222.248.67) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.529.5 via Frontend Transport; Thu, 30 Dec 2021 12:28:45 +0100\\\", \\\"from mout.<<TR_MALICIOUS_DOMAIN>> (mout.<<TR_MALICIOUS_DOMAIN>> [212.227.15.19])\\\\tby FortiMail.fortielab.com  with ESMTP id 1BUBSim7011052-1BUBSim9011052\\\\t(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)\\\\tfor <asmith@fortielab.com>; Thu, 30 Dec 2021 12:28:44 +0100\\\", \\\"from [94.206.17.9] ([94.206.17.9]) by web-mail.<<TR_MALICIOUS_DOMAIN>> (3c-app-mailcom-bs09.server.lan [172.19.170.177]) (via HTTP); Thu, 30 Dec 2021 12:28:44 +0100\\\"], \\\"message-id\\\": \\\" <trinity-b0a59a02-90e3-492b-9a53-b3cb5b731dba-1640863<<TR_RANDOM_INTEGER,100000,999999>>@3c-app-mailcom-bs09>\\\", \\\"return-path\\\": \\\"cto_office@<<TR_MALICIOUS_DOMAIN>>\\\", \\\"sensitivity\\\": \\\"Normal\\\", \\\"x-spam-flag\\\": \\\"NO\\\", \\\"content-type\\\": \\\"multipart/mixed; boundary=\\\\\\\"abmob-61f3bba5-7345-4f26-b3b5-dd1f2f756898\\\\\\\"\\\", \\\"mime-version\\\": \\\"1.0\\\", \\\"x-provags-id\\\": \\\" V03:K1:fzttCS/6NwfGL8txFlNhtT+4ih7HuMPUmyhGd5BjhaRiaeaPF5ErpcQKXq4oxHU1zLl35 sTK8yUCaLWb4fXaLgV/HrfO8t/MWyStur/AVJDHnRaL5qYB3VtryogihQYZMIb3PE3Gvz9UqLYbc GhBuMLpeA9nuFF9nSus6yTBc7SZMjlwGKlBCyClkLO/yEe1Cw/eb5zF2Rrns5kmDjUG5vdWIgVNe 4geYwFHE8y+W4XyPO+JhnU5856rPehUcBlpmxqo1H8if2n2bS+uEfldmYXwDmsg34dflu2jYUTTd Q8=\\\", \\\"dkim-signature\\\": \\\"v=1; a=rsa-sha256; c=relaxed/simple; d=<<TR_MALICIOUS_DOMAIN>>;\\\\ts=badeba3b8450; t=1640863724;\\\\tbh=yw27rBIzkEOvfXFitD89pJWu6ehM8hzj4ioTfQoKFBo=;\\\\th=X-UI-Sender-Class:From:To:Subject:Date;\\\\tb=bIUv5JkOtaSGjQk1iX4/OYLeGUzIrioNE3toFNeJi4AhH2MmTWmqc1bj7Co2pEz7o\\\\t aiYPy4nOEXddqMaQU+Bs/sjeU5K4bHjQvszj0CuEnLMIgpvpeKaAz+h6sf6o4ohb20\\\\t n6EptPc0VeYbz3ycunovmcYGzkLj+ZaiPpcSK7nk=\\\", \\\"x-fe-policy-id\\\": \\\"0:1:1:SYSTEM\\\", \\\"x-ui-sender-class\\\": \\\"01bb95c1-4bf8-414a-932a-4f6e2808ef9c\\\", \\\"x-ui-out-filterresults\\\": \\\"notjunk:1;V03:K0:uiAuZ/zk7hs=:G2MLnE2/MFkNLI7bnlVxjG tYTaisrcaE3NwSsYOrmxp41OA0MGV6Zuin7IuSiVI6oj1kMCD/kTu42n0boXprRnWcfipzcEk OUyI/v+1A7eTbsendRSJr2AvO3X9FvbSSXg24Wir3O6f0w2SiiaGbAQwaq9k+ZlApFqkODUfE 0vp2RAC8lxFxHNixoxHHvpNk4rkpegxVFgrcfF1fjgyEhpwVM1YBvDNwWQ4XVK34LB4bLTteE wi6vFsSi/kHM0UDekDZUfM5qQ1mWxRes2copfjQ3uL+Z8ZcNgKRBlOeBkt2W71w/WrnTmqbt1 z+HKtLhBkxzcSwm124u9RsyNiIkY5tGkR7D1oGqZQ0npVBECim/QWs2fQ8r4jp4EgTqOrbJt+ RO/KO6HhF2lDcxn27K9Th/yfjtF4QdWE5FZ6mQV26Sd6Ae2HyG4XwxXW+wUJQIVn73VYregJ9 tq7XQ/GimMkBO+G7LRPzOKcbw6QiucfPjT1FxLnLWj1l6dJlGgHSKVtR7Ooo3xRpIWm+fPt3+ nzlQd2ou+52xVR0H7e2HY1YtW3OlYpShTOMOdiW/9UEZOnPo3RJOQs8keHXyvUUqWwVvrkfMs ukoxwCOVk2Uvk6Y62AeuCgdz6UfF1vg81n/jyzxnZ/Vn7yiG8KO28rhuPFzgG3q5IEmHgeKIi 1VC8uygXZL80QjTKr/1agP3ok9aRLfsHR2eJGpwOCILHcYoXp4ijuP6A6DEUl9pwu3W/ILMLj Igki0du3JCCCeKfKmd3oHLFqoOu6F90uVwtTYil4u7Dj8OA5dpg7B8LCU/78thRrNkMH4Zqxz cRVSDJU\\\", \\\"x-ms-exchange-organization-authas\\\": \\\"Anonymous\\\", \\\"x-ms-exchange-organization-authsource\\\": \\\"Exch19.fortielab.com\\\", \\\"x-ms-exchange-processed-by-bccfoldering\\\": \\\"15.02.0529.005\\\", \\\"x-ms-exchange-transport-endtoendlatency\\\": \\\"00:00:07.2446325\\\", \\\"x-ms-exchange-organization-network-message-id\\\": \\\" eabb569b-87d4-46c7-a229-08d9cb<<TR_RANDOM_INTEGER,100000,999999>>\\\"}, \\\"epilogue\\\": \\\"\\\", \\\"preamble\\\": \\\"\\\", \\\"attachments\\\": [{\\\"file\\\": \\\"{{vars.create_malicious_file_result.indicator.file.filename}}\\\", \\\"metadata\\\": {\\\"md5\\\": \\\"\\\", \\\"sha1\\\": \\\"c4266da991ef610c647da69b1eda1840f8a8b450\\\", \\\"sha256\\\": \\\"a1ab039d63756a39d47225198866ee8757284b79f6aa35dddd19ca92856d8015\\\", \\\"filename\\\": \\\"{{vars.create_malicious_file_result.indicator.file.filename}}\\\", \\\"content_type\\\": \\\"application/x-compressed\\\", \\\"content_length\\\": 5888}, \\\"file_type\\\": \\\"tgz\\\"}], \\\"{{vars.create_malicious_file_result.indicator.file.filename}}s\\\": [\\\"{{vars.create_malicious_file_result.indicator.file.filename}}\\\"], \\\"reporterEmailBody\\\": {\\\"html\\\": \\\"<html>\\\\r\\\\n<head>\\\\r\\\\n<meta http-equiv=\\\\\\\"Content-Type\\\\\\\" content=\\\\\\\"text/html; charset=iso-8859-1\\\\\\\">\\\\r\\\\n<style type=\\\\\\\"text/css\\\\\\\" style=\\\\\\\"display:none;\\\\\\\"><!-- P {margin-top:0;margin-bottom:0;} --></style>\\\\r\\\\n</head>\\\\r\\\\n<body dir=\\\\\\\"ltr\\\\\\\">\\\\r\\\\n<div id=\\\\\\\"divtagdefaultwrapper\\\\\\\" style=\\\\\\\"font-size:12pt;color:#000000;font-family:Calibri,Helvetica,sans-serif;\\\\\\\" dir=\\\\\\\"ltr\\\\\\\">\\\\r\\\\n<p>Team,</p>\\\\r\\\\n<p>This message seems suspicious, could you please investigate.</p>\\\\r\\\\n<p>Regards,</p>\\\\r\\\\n<p>Adam<br>\\\\r\\\\n</p>\\\\r\\\\n</div>\\\\r\\\\n</body>\\\\r\\\\n</html>\\\\r\\\\n\\\", \\\"json\\\": null, \\\"text\\\": \\\"Team,\\\\r\\\\n\\\\r\\\\nThis message seems suspicious, could you please investigate.\\\\r\\\\n\\\\r\\\\nRegards,\\\\r\\\\n\\\\r\\\\nAdam\\\\r\\\\n\\\"}, \\\"reporterEmailAddress\\\": \\\"adam smith <asmith@fortielab.com>\\\", \\\"parsed_attachment_data\\\": []}\",\n    \"recipientEmailAddress\": \"asmith@fortielab.com\",\n    \"registryKey\": null,\n    \"registryKeyValue\": null,\n    \"reporter\": \"adam smith <asmith@fortielab.com>\",\n    \"reporterEmailBody\": \"<p><html>\\r\\n<head>\\r\\n<meta http-equiv=\\\"Content-Type\\\" content=\\\"text/html; charset=iso-8859-1\\\">\\r\\n<style type=\\\"text/css\\\" style=\\\"display:none;\\\"><!-- P {margin-top:0;margin-bottom:0;} --></style>\\r\\n</head>\\r\\n<body dir=\\\"ltr\\\">\\r\\n<div id=\\\"divtagdefaultwrapper\\\" style=\\\"font-size:12pt;color:#000000;font-family:Calibri,Helvetica,sans-serif;\\\" dir=\\\"ltr\\\">\\r\\n<p>Team,</p>\\r\\n<p>This message seems suspicious, could you please investigate.</p>\\r\\n<p>Regards,</p>\\r\\n<p>Adam<br>\\r\\n</p>\\r\\n</div>\\r\\n</body>\\r\\n</html>\\r\\n</p>\",\n    \"returnPath\": \"cto_office@<<TR_MALICIOUS_DOMAIN>>\",\n    \"scheduledTask\": null,\n    \"senderDomain\": \"fortielab.com\",\n    \"senderEmailAddress\": \"adrian aln <cto_office@fortielab.com>>\",\n    \"services\": null,\n    \"source\": \"User Reported\",\n    \"sourceId\": \"  <trinity-b0a59a02-90e3-492b-9a53-b3cb5b731dba-1640863724273@3c-app-mailcom-bs09> \",\n    \"sourceIp\": null,\n    \"sourcePort\": null,\n    \"sourceProcess\": null,\n    \"sourceTool\": null,\n    \"targetAsset\": null,\n    \"targetProcess\": null,\n    \"url\": null,\n    \"userName\": null,\n    \"userDetails\": null,\n    \"mitretactics\": null,\n    \"mitregroups\": null,\n    \"deviceType\": null,\n    \"assignedTo\": {\n        \"@id\": \"/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"@type\": \"Person\",\n        \"phoneHome\": null,\n        \"firstname\": \"CS\",\n        \"lastname\": \"Admin\",\n        \"title\": \"Admin\",\n        \"department\": null,\n        \"email\": \"admin@example.com\",\n        \"description\": null,\n        \"phoneFax\": null,\n        \"phoneMobile\": null,\n        \"phoneWork\": \"+16462759691\",\n        \"csActive\": true,\n        \"accessType\": \"Named\",\n        \"companyId\": null,\n        \"type\": null,\n        \"userType\": null,\n        \"avatar\": null,\n        \"uuid\": \"3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"createUser\": \"/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"createDate\": 1633035299,\n        \"modifyUser\": \"/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce\",\n        \"modifyDate\": 1633035299,\n        \"id\": 3,\n        \"userId\": \"f6cea8d1-1910-4b3f-8802-a907d7688493\",\n        \"@settings\": \"/api/3/user_settings/3451141c-bac6-467c-8d72-85e0fab569ce\"\n    },\n    \"ackSlaStatus\": null,\n    \"respSlaStatus\": null,\n    \"closureReason\": null,\n    \"escalatedtoincident\": null,\n    \"killChainPhase\": null,\n    \"severity\": {\n        \"@id\": \"/api/3/picklists/b3c20a3a-ecfd-4adc-a225-0205968e6793\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Medium\",\n        \"orderIndex\": 2,\n        \"color\": \"#D2AC1A\",\n        \"icon\": null,\n        \"listName\": \"/api/3/picklist_names/4e80cba3-032f-48b4-ac03-17e3ec247aac\",\n        \"uuid\": \"b3c20a3a-ecfd-4adc-a225-0205968e6793\",\n        \"id\": 176\n    },\n    \"state\": {\n        \"@id\": \"/api/3/picklists/501d0562-89a0-4079-9a9e-cdde7d34e3ed\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Indicator Extracted\",\n        \"orderIndex\": 2,\n        \"color\": null,\n        \"icon\": null,\n        \"listName\": \"/api/3/picklist_names/2f9ed741-25fe-475a-9f12-64336288eebf\",\n        \"uuid\": \"501d0562-89a0-4079-9a9e-cdde7d34e3ed\",\n        \"id\": 71\n    },\n    \"status\": {\n        \"@id\": \"/api/3/picklists/7de816ff-7140-4ee5-bd05-93ce22002146\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Open\",\n        \"orderIndex\": 1,\n        \"color\": null,\n        \"icon\": null,\n        \"listName\": \"/api/3/picklist_names/33e964a9-d607-49f2-813c-7ce46141815a\",\n        \"uuid\": \"7de816ff-7140-4ee5-bd05-93ce22002146\",\n        \"id\": 118\n    },\n    \"systemAssignedQueue\": null,\n    \"type\": {\n        \"@id\": \"/api/3/picklists/c145394b-069a-449b-a05e-67980d0f4b82\",\n        \"@type\": \"Picklist\",\n        \"itemValue\": \"Suspicious Email\",\n        \"orderIndex\": 15,\n        \"color\": null,\n        \"icon\": null,\n        \"listName\": \"/api/3/picklist_names/a7087b9c-5660-495f-a8ac-c3b198ddb8c2\",\n        \"uuid\": \"c145394b-069a-449b-a05e-67980d0f4b82\",\n        \"id\": 195\n    },\n    \"uuid\": \"fd420999-01ed-44cb-ba98-178b95fcc070\",\n    \"createUser\": {\n        \"@id\": \"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63\",\n        \"@type\": \"Appliance\",\n        \"name\": \"Playbook\",\n        \"userType\": null,\n        \"avatar\": null,\n        \"uuid\": \"57545210-2adc-472b-a24f-2df6ee8dfe63\",\n        \"createUser\": null,\n        \"createDate\": 1633035299,\n        \"modifyUser\": null,\n        \"modifyDate\": 1633035299,\n        \"id\": 1,\n        \"userId\": \"6f3626c1-0da7-4b44-8d5e-43750f780a47\"\n    },\n    \"createDate\": 1640865003,\n    \"modifyUser\": {\n        \"@id\": \"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63\",\n        \"@type\": \"Appliance\",\n        \"name\": \"Playbook\",\n        \"userType\": null,\n        \"avatar\": null,\n        \"uuid\": \"57545210-2adc-472b-a24f-2df6ee8dfe63\",\n        \"createUser\": null,\n        \"createDate\": 1633035299,\n        \"modifyUser\": null,\n        \"modifyDate\": 1633035299,\n        \"id\": 1,\n        \"userId\": \"6f3626c1-0da7-4b44-8d5e-43750f780a47\"\n    },\n    \"modifyDate\": 1640865077,\n    \"tenant\": {\n        \"@id\": \"/api/3/tenants/b3a700f7-00be-4ef9-90c6-3c8fe6e1be63\",\n        \"@type\": \"Tenant\",\n        \"name\": \"Self\",\n        \"isDedicated\": true,\n        \"tenantId\": \"d5b9ada9427ad718b7f432cab7210bc8\",\n        \"role\": \"self\",\n        \"description\": \"sample\",\n        \"allowRemoteMMDModification\": true,\n        \"license\": null,\n        \"region\": null,\n        \"industry\": null,\n        \"uuid\": \"b3a700f7-00be-4ef9-90c6-3c8fe6e1be63\",\n        \"createUser\": null,\n        \"createDate\": null,\n        \"modifyUser\": null,\n        \"modifyDate\": null,\n        \"id\": 1\n    },\n    \"conflict\": false,\n    \"tenantRecordId\": 101,\n    \"id\": 101,\n    \"recordTags\": [],\n    \"assignee\": \"\"\n}"
+              },
+              "status": null,
+              "top": "435",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "5d90b68c-c518-40a0-818f-6c8c55e95987",
+              "id": 12933
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "True Positive Create Alert",
+              "description": null,
+              "arguments": {
+                "name": "FortiSOAR SOC Simulator",
+                "config": "49e31d78-46c3-4d6a-be56-b0758bbf579c",
+                "params": {
+                  "alert_json": "{{vars.malicious_email_alert_json}}"
+                },
+                "version": "1.0.8",
+                "connector": "fortisoar-soc-simulator",
+                "operation": "create_simulated_alert",
+                "operationTitle": "Create Simulated Alert",
+                "pickFromTenant": false,
+                "step_variables": {
+                  "alert_data": "{{vars.result.data}}"
+                }
+              },
+              "status": null,
+              "top": "571",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "82751c66-bf64-47e4-a883-ab36bc00d28c",
+              "id": 12937
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "12cec040-edee-4de0-8ee2-ffc750cd788f",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "c64c7968-8dfa-4ea8-bb1a-5b9ec1f103d7",
+              "id": 12934
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Link Attachment File",
+              "description": null,
+              "arguments": {
+                "resource": {
+                  "__link": {
+                    "indicators": "{{vars.create_malicious_file_result.indicator['@id']}}"
+                  }
+                },
+                "_showJson": false,
+                "operation": "Append",
+                "collection": "{{vars.alert_data['@id']}}",
+                "__recommend": [],
+                "collectionType": "/api/3/alerts",
+                "fieldOperation": {
+                  "recordTags": "Append"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "706",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
+              "uuid": "cd4e8126-e922-4ac4-8e49-3145c55c8ce2",
+              "id": 12936
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Malicious URL -> Get Attachment",
+              "targetStep": "/api/3/workflow_steps/492dbded-5f90-404d-aec0-63d7192a1997",
+              "sourceStep": "/api/3/workflow_steps/1cf1f334-075d-4b3b-9877-c3a3493201bd",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "3c48a910-44c8-438d-8b15-d518f2d0dcec"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Malicious Email Data -> True Positive Create Alert",
+              "targetStep": "/api/3/workflow_steps/82751c66-bf64-47e4-a883-ab36bc00d28c",
+              "sourceStep": "/api/3/workflow_steps/5d90b68c-c518-40a0-818f-6c8c55e95987",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "82e73b63-ef4d-4a43-a3d3-2c9190f8ba9a"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Attachment -> Malicious Email Data",
+              "targetStep": "/api/3/workflow_steps/5d90b68c-c518-40a0-818f-6c8c55e95987",
+              "sourceStep": "/api/3/workflow_steps/492dbded-5f90-404d-aec0-63d7192a1997",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "9c334cd0-afcd-46ba-b549-d2b167514dbf"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "True Positive Create Alert -> Link Attachment File",
+              "targetStep": "/api/3/workflow_steps/cd4e8126-e922-4ac4-8e49-3145c55c8ce2",
+              "sourceStep": "/api/3/workflow_steps/82751c66-bf64-47e4-a883-ab36bc00d28c",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "cd48c492-8e9b-49b9-a3c8-7b79adef1a16"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Malicious URL",
+              "targetStep": "/api/3/workflow_steps/1cf1f334-075d-4b3b-9877-c3a3493201bd",
+              "sourceStep": "/api/3/workflow_steps/c64c7968-8dfa-4ea8-bb1a-5b9ec1f103d7",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e9b06b1a-ae0d-43db-a961-6e75f2bc09d7"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "e5b1c484-9c93-4664-8006-a3a07637eb7f",
+          "recordTags": [
+            "Use-Case",
+            "FortiSOAR SOC Simulator"
+          ],
+          "id": 2507,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1642767834,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1642767858,
           "owners": [],
           "isPrivate": false
         },
@@ -2474,7 +2703,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "16245e66-9e5e-453e-bc63-80c6b14d4220",
-              "id": 10228
+              "id": 10314
             },
             {
               "@type": "WorkflowStep",
@@ -2488,7 +2717,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "65097059-6929-451f-9e4d-2ec951e3f87f",
-              "id": 10233
+              "id": 10315
             },
             {
               "@type": "WorkflowStep",
@@ -2512,7 +2741,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "8d2cbdf0-86f3-4fba-9fe4-d27aaf833c17",
-              "id": 10227
+              "id": 10316
             },
             {
               "@type": "WorkflowStep",
@@ -2526,7 +2755,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "uuid": "b6099ec4-8f1c-48ce-a576-3518479269f2",
-              "id": 10232
+              "id": 10317
             }
           ],
           "routes": [
@@ -2563,11 +2792,11 @@
           "recordTags": [
             "FortiSOAR SOC Simulator"
           ],
-          "id": 2041,
-          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1640502160,
-          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640502260,
+          "id": 2058,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1641142098,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1641142098,
           "owners": [],
           "isPrivate": false
         }
@@ -2577,6 +2806,7 @@
   "exported_tags": [
     "FortiSOAR SOC Simulator",
     "Sample",
-    "ManualTrigger"
+    "ManualTrigger",
+    "Use-Case"
   ]
 }
