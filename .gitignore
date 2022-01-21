@@ -1,0 +1,5 @@
+#official python gitignore
+__pycache__/
+*.py[cod]
+*.tgz
+*$py.class

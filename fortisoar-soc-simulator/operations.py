@@ -6,6 +6,7 @@ from docx import Document
 from io import BytesIO 
 from .constants import *
 from .utils import *
+from .fakemalware import *
 
 logger = get_logger('FortiSOARSocSimulator')
 logger.setLevel(logging.DEBUG)
@@ -33,7 +34,7 @@ def bad_filehash(params):
 def bad_domain(params):
     return __threatdata_from_file('malicious_domains', params)
 
-def _replace_variables(input_string,params=None):
+def __replace_variables(input_string,params=None):
     """
     Parses alert record JSON and replaces tags with corresponding dynamic vlaues
     
@@ -77,16 +78,16 @@ def replace_variables(params):
     params here can be misleading, it is actually the value of input_string
     TODO: improve the implementation logic/naming when passing parameters
     """
-    return _replace_variables(params.get('variables'),params)
+    return __replace_variables(params.get('variables'),params)
 
 
-def get_random_integer(params):
+def tr_get_random_integer(params):
     if params and isinstance(params, list) and len(params) == 2:
         return random.randint(int(params[0]), int(params[1]))
     else:
         return random.randint(1, 999999)
 
-def get_asset_ip(params):
+def tr_get_asset_ip(params):
     """
     return a random host IP, If params is defined as a network address returns an IP from that subnet
     
@@ -138,13 +139,16 @@ def malicious_file_indicator(params):
         file_iri = attach_response['file']['@id'] if attachment_also else attach_response['@id']
         INDICATOR_JSON_PAYLOAD.update({'file':file_iri})
         INDICATOR_JSON_PAYLOAD.update({'value':file_name})
-        indicator_response = make_request('/api/3/indicators', 'POST', body=INDICATOR_JSON_PAYLOAD)
+        indicator_response = make_request('/api/3/indicators', 'POST', body=INDICATOR_JSON_PAYLOAD)        
         os.remove(path)
         return {'file':attach_response,'indicator':json.loads(indicator_response.content)}
+        
 
     except Exception as e:
+        os.remove(path)
         logger.exception(e)
         raise ConnectorError(str(e))
+
 
 def create_simulated_alert(params):
     """
@@ -158,14 +162,14 @@ def create_simulated_alert(params):
         alert_json = params.get('alert_json') if isinstance(params.get('alert_json'), dict) else json.loads(params.get('alert_json'))
         for elem in FIELDS_TO_DELETE:
             alert_json.pop(elem)
-
-        return make_request('/api/3/alerts', 'POST', body=_replace_variables(alert_json))
+        response = make_request('/api/3/alerts', 'POST', body=__replace_variables(alert_json))
+        return response.json()
 
     except Exception as e:
         logger.exception(e)
         raise ConnectorError(str(e))        
 
-def get_my_public_ip(params):
+def tr_get_my_public_ip(params):
     """
     Returns FortiSOAR public IP
     
@@ -189,33 +193,27 @@ def get_my_public_ip(params):
         logger.error(str(err))
         raise ConnectorError(str(err))        
 
-def get_username(params):
+def tr_get_username(params):
     usernames=['Sun.Tzu','Albert.Einstein','Isaac.Newton','Leonardo.Da.Vinci','Aristotle','Galileo.Galilei','Alexander.the.Great','Charles.Darwin','Plato','William.Shakespeare','Martin.Luther.Kin','Socrates','Mahatma.Gandhi','Abraham.Lincoln','George.Washington','Mose','Nikola.Tesla','Gautama.Buddha','Julius.Ceasar','Karl.Marx','Martin.Luther','Napoleon.Bonaparte','Johannes.Gutenberg']
     return random.choices(usernames)[0]
 
-def get_time_now(params):
-    return arrow.utcnow().format('YYYY-MM-DD HH:mm')
+def tr_get_timestamp(params):
+    if params and isinstance(params, list) and len(params) == 1:
+        epoch_time = arrow.utcnow().shift(minutes=-params[0]).int_timestamp
+        return str(epoch_time)
+    else:
+        epoch_time = arrow.utcnow().int_timestamp
+        return str(epoch_time)
 
-def get_time_past(params):
-    return arrow.utcnow().shift(hours=-(random.randint(86400, 172800))).format('YYYY-MM-DD HH:mm')
 
-def get_time_minus_one(params):
-    return arrow.utcnow().shift(minutes=-(random.randint(3400, 3800))).format('YYYY-MM-DD HH:mm')
+def tr_get_formatted_time(params):
+    if params and isinstance(params, list) and len(params) == 1:
+        formatted_time = arrow.utcnow().shift(minutes=-params[0]).format('ddd, DD MMM YYYY HH:mm:ss Z')
+        return str(formatted_time)
+    else:
+        formatted_time = arrow.utcnow().format('ddd, DD MMM YYYY HH:mm:ss Z')
+        return str(formatted_time)
 
-def get_time_minus_two(params):
-    return arrow.utcnow().shift(minutes=-(random.randint(7200, 86400))).format('YYYY-MM-DD HH:mm')
-
-def get_time_minus_three(params):
-    return arrow.utcnow().shift(minutes=-(random.randint(10800, 11000))).format('YYYY-MM-DD HH:mm')
-
-def get_time_minus_four(params):
-    return arrow.utcnow().shift(minutes=-(random.randint(14400, 14600))).format('YYYY-MM-DD HH:mm')
-
-def get_time_minus_five(params):
-    return arrow.utcnow().shift(minutes=-(random.randint(18000, 18300))).format('YYYY-MM-DD HH:mm')
-
-def get_time_minus_six(params):
-    return arrow.utcnow().shift(minutes=-(random.randint(21600, 21900))).format('YYYY-MM-DD HH:mm')
 
 def _check_health():
     return True
@@ -234,16 +232,10 @@ function_dictionary={
     "TR_MALICIOUS_DOMAIN": bad_domain,
     "TR_MALICIOUS_URL": bad_url,
     "TR_MALICIOUS_HASH": bad_filehash,
-    "TR_RANDOM_INTEGER": get_random_integer,
-    "TR_PUBLIC_IP": get_my_public_ip,
-    "TR_USERNAME": get_username,
-    "TR_ASSET_IP":get_asset_ip,    
-    "TR_NOW": get_time_now,
-    "TR_PAST": get_time_past,
-    "TR_T-1": get_time_minus_one,
-    "TR_T-2": get_time_minus_two,
-    "TR_T-3": get_time_minus_three,
-    "TR_T-4": get_time_minus_four,
-    "TR_T-5": get_time_minus_five,
-    "TR_T-6": get_time_minus_six
+    "TR_RANDOM_INTEGER": tr_get_random_integer,
+    "TR_PUBLIC_IP": tr_get_my_public_ip,
+    "TR_USERNAME": tr_get_username,
+    "TR_ASSET_IP":tr_get_asset_ip,    
+    "TR_FORMATTED_TIME": tr_get_formatted_time,
+    "TR_TIMESTAMP": tr_get_timestamp
 }
