@@ -1,10 +1,17 @@
 # FortiSOAR SOC Simulator 
 
-  
+The FortiSOAR SOC Simulator connector is used to run Use Case simulations. a Use case simulation (Scenario) has the below design principles:
 
-The FortiSOAR SOC Simulator connector is used to create various scenarios. To configure this connector, open the FortiSOAR SOC Simulator Connector and in its "Configuration > Page" enter the following values for the configuration parameters   
+- A simulation starts with a record (Typically an alert) having the same data the record has when it is created via the ingestion process. This will guarantee all subsequent workflow would work the same regardless whether the source of the record is a simulation or a live environment data
+- Optionally, It should be possible to run a simulation in either automated way, so all playbooks will be trigger automatically or a manual way where the user has to use the WebUI to trigger them. To achieve this a simple method below could be used:
+  - All actual playbooks should be created with a referenced trigger
+  - Each actual playbook would have two parent playbooks, one with a manual trigger and anotherone automated (onCreate/onUpdate)
+  - A simulation can use a record attribute (such as: SOURCE TYPE in Alerts) value to decide whether subsequent playbooks will run automatically or not (manually triggered then)
+- The simulation should always indicate via the Workspace comments what is the **next step** to guide users running the simulation in the workflow
+- Try to always to leverage existing solution pack to accomplish tasks, if a bug is detected, it can be reported in the issues section of the corresponding solution pack
 
-  
+
+To configure this connector, open the FortiSOAR SOC Simulator Connector and in its "Configuration > Page" enter the following values for the configuration parameters   
 
 - **Configuration Name**: Provide a name for this configuration and you can optionally mark this configuration as the “Default Configuration”.  
 
@@ -237,9 +244,4 @@ While creating scenario add following in 'steps section' . Replace values at app
 </p> 
 
 Here "sourceIp": "{TR_MALICIOUS_IP}"   << this is an example set a placeholder where you want to change value of , here, sourceIP dynamically when demo record is created 
-
-  
-
-Refer for more details about content pack: https://fusecommunity.fortinet.com/viewdocument/incident-response-content-pack?CommunityKey=9f1420e8-e3c6-4535-8cae-3fa714da66d8&tab=librarydocuments 
-
- 
+Refer for more details about content pack: https://fusecommunity.fortinet.com/viewdocument/incident-response-content-pack?CommunityKey=9f1420e8-e3c6-4535-8cae-3fa714da66d8&tab=librarydocuments
