@@ -6,6 +6,7 @@ from docx import Document
 from io import BytesIO 
 from .constants import *
 from .utils import *
+from .fakemalware import *
 
 logger = get_logger('FortiSOARSocSimulator')
 logger.setLevel(logging.DEBUG)
