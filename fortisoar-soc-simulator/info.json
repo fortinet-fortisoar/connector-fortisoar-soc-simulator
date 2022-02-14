@@ -182,7 +182,18 @@
                     "name": "malicious_email",
                     "placeholder":"badactor@bad-domain.com",
                     "value": ""
-                },                                
+                },
+                {
+                    "title": "Custom Indicator Parameters",
+                    "tooltip": "JSON dict with various parameters you want to set for the newly created file Indicator",
+                    "required": false,
+                    "editable": true,
+                    "visible": true,
+                    "type": "json",
+                    "name": "custom_parameters",
+                    "placeholder":"{'indicatorStatus': '/api/3/picklists/4218cb58-4de5-4eff-ad08-185d36ef9bab'}",
+                    "value": ""
+                },                    
                 {
                     "title": "Also Create Attachment",
                     "tooltip":"Create an attachment file as well when creating the indicator file",

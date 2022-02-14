@@ -123,6 +123,7 @@ def malicious_file_indicator(params):
     malicious_url = params.get('malicious_url') if params.get('malicious_url') else 'https://malicious_url.co.uk/maliciouspage.php'
     malicious_email = params.get('malicious_email') if params.get('malicious_email') else 'malicious_user@bad-domain.com'
     attachment_also = params.get('attachment_also') if params.get('attachment_also') else False
+    custom_parameters = params.get('custom_parameters', None)
     try:
         path = os.path.join(settings.TMP_FILE_ROOT, file_name)
         logger.debug("Path: {0}".format(path))
@@ -139,6 +140,8 @@ def malicious_file_indicator(params):
         file_iri = attach_response['file']['@id'] if attachment_also else attach_response['@id']
         INDICATOR_JSON_PAYLOAD.update({'file':file_iri})
         INDICATOR_JSON_PAYLOAD.update({'value':file_name})
+        if custom_parameters:
+            INDICATOR_JSON_PAYLOAD.update(custom_parameters)
         indicator_response = make_request('/api/3/indicators', 'POST', body=INDICATOR_JSON_PAYLOAD)        
         os.remove(path)
         return {'file':attach_response,'indicator':json.loads(indicator_response.content)}
@@ -157,12 +160,16 @@ def create_simulated_alert(params):
     :param str params['alert_json']: Alert definition in JSON
     :return: POST /api/3/alerts response
     :rtype: dict
-    """ 
+    """    
+    json_payload = {}
     try:
+        fields_to_ignore = params.get('fields_to_ignore').replace(' ','').split(',') if params.get('fields_to_ignore') else FIELDS_TO_IGNORE        
         alert_json = params.get('alert_json') if isinstance(params.get('alert_json'), dict) else json.loads(params.get('alert_json'))
-        for elem in FIELDS_TO_DELETE:
-            alert_json.pop(elem)
-        response = make_request('/api/3/alerts', 'POST', body=__replace_variables(alert_json))
+        logger.debug('Ignoring input alert fields:{}'.format(fields_to_ignore))
+        for k,v in alert_json.items():
+            if k not in fields_to_ignore:
+                json_payload.update({k:v})
+        response = make_request('/api/3/alerts', 'POST', body=__replace_variables(json_payload))
         return response.json()
 
     except Exception as e:
