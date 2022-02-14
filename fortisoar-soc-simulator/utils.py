@@ -6,7 +6,7 @@ from django.conf import settings
 import requests, argparse, textwrap, json, random, time, os, csv, re, jmespath
 from .constants import CONNECTOR_VERSION
 
-logger = get_logger('soc_scenario')  
+logger = get_logger('FortiSOARSocSimulator')  
   
   
 supported_operations = {}
@@ -175,7 +175,15 @@ def make_request(url, method, body=None,files=None, *args, **kwargs):
     if files:
         auth = HmacAuth(url, method, public_key, private_key,public_key.encode('utf-8'))
         response = requests.request(method, url, auth=auth, files=files, verify=False)
-        return response
+        if response.status_code in [200,201,204]:
+            return response
+        else:
+            logger.error("make_request Error, Status code: {0}, Server Response: {1}".format(response.status_code,response.text))
+            raise ConnectorError("make_request Error, Status code: {0}, Server Response: {1}".format(response.status_code,response.text))
     else:
         response = requests.request(method, url, auth=auth, json=body, verify=False)
-        return response
+        if response.status_code in [200,201,204]:
+            return response
+        else:
+            logger.error("make_request Error, Status code: {0}, Server Response: {1}".format(response.status_code,response.text))
+            raise ConnectorError("make_request Error, Status code: {0}, Server Response: {1}".format(response.status_code,response.text))

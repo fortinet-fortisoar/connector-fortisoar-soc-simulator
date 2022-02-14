@@ -160,12 +160,16 @@ def create_simulated_alert(params):
     :param str params['alert_json']: Alert definition in JSON
     :return: POST /api/3/alerts response
     :rtype: dict
-    """ 
+    """    
+    json_payload = {}
     try:
+        fields_to_ignore = params.get('fields_to_ignore').replace(' ','').split(',') if params.get('fields_to_ignore') else FIELDS_TO_IGNORE        
         alert_json = params.get('alert_json') if isinstance(params.get('alert_json'), dict) else json.loads(params.get('alert_json'))
-        for elem in FIELDS_TO_DELETE:
-            alert_json.pop(elem)
-        response = make_request('/api/3/alerts', 'POST', body=__replace_variables(alert_json))
+        logger.debug('Ignoring input alert fields:{}'.format(fields_to_ignore))
+        for k,v in alert_json.items():
+            if k not in fields_to_ignore:
+                json_payload.update({k:v})
+        response = make_request('/api/3/alerts', 'POST', body=__replace_variables(json_payload))
         return response.json()
 
     except Exception as e:

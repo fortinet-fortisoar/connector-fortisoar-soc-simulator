@@ -9,4 +9,4 @@ INDICATOR_JSON_PAYLOAD = {
     "conflict": False
 }
 PHISHING_PHRASE = 'Please note: All users are required to fill the above details and send it to our IT service provider [{EMAIL}] within 3 days from receiving the notification. For more details please visit : [{URL}]'
-FIELDS_TO_DELETE = ['uuid','@id','id','respDueDate','ackDate','respDate','dueBy','sourceId','state']
+FIELDS_TO_IGNORE = ['uuid','@id','id','respDueDate','ackDate','respDate','dueBy','sourceId','assignedTo']
