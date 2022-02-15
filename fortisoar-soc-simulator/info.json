@@ -224,7 +224,18 @@
                     "type": "textarea",
                     "name": "alert_json",
                     "value": ""
-                }
+                },
+                {
+                    "title": "Fields To Ignore",
+                    "tooltip": "CSV of the fields to be ignored from the Alert data when the alert is created",
+                    "required": false,
+                    "editable": true,
+                    "visible": true,
+                    "type": "text",
+                    "name": "fields_to_ignore",
+                    "placeholder":"uuid,@id,id,respDueDate,ackDate,respDate,dueBy,sourceId,state",
+                    "value": ""
+                }                
             ]
         }         
     ],
