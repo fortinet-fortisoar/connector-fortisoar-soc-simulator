@@ -9,6 +9,7 @@
     "category": "information",
     "icon_medium_name": "fortisoar_medium.png",
     "configuration": {
+		"fields": [
             {
                 "title": "Load Threat Intelligence",
                 "description": "Load latest threat intelligence data.",

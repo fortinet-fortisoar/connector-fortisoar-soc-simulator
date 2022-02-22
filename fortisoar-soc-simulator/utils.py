@@ -11,41 +11,6 @@ logger = get_logger('FortiSOARSocSimulator')
   
 supported_operations = {}
 
-def get_config_job():
-    global scenario_data
-    body = {"sort": [{"field": "modifyDate","direction": "DESC"}],"logic": "AND","filters": [],"__selectFields": ["file","status"]}
-    url = "/api/query/import_jobs?$limit=3000"
-    res = make_request(url,"POST",body=body)
-    res = res.json()
-    scenario_data = res.get('hydra:member')
-    return scenario_data
-
-def set_config_job(scenario_path,scenario_title):
-    file_path=scenario_path
-    file_iri= _upload_file(file_path,scenario_title=scenario_title.title())
-    _create_import_job(file_iri)
-    
-    
-def _upload_file(data_path,scenario_title):
-    file = open(data_path, 'rb')
-    file_name = scenario_title
-    multipart_headers = {'Expire': 0}
-    request_headers = {}
-    extra_fields = {}
-    files = {'file': (file_name, file, 'application/json', multipart_headers)}
-    url = "/api/3/files"
-    response = make_request(url, 'POST', files=files)
-    response = response.json()
-    return response.get('@id')
-  
-def _create_import_job(file_iri):
-    # payload = {"file" : {"@id":file_iri},"status":"Draft","options":{}}
-    payload = {"file": file_iri, "status": "Draft", "options": {}}
-    url = "/api/3/import_jobs"
-    response = make_request(url, 'POST', body=payload)
-    response = response.json()
-    job_id = response.get('@id').split("/")[-1]
-    return job_id
 
 def load_threat():
     #These URLs require review. bad_domains updated @1.0.9
