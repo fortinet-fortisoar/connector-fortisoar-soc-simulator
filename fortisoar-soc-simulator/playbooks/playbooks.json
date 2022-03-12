@@ -1039,7 +1039,7 @@
               "description": null,
               "arguments": {
                 "route": "06541acc-eef5-41c4-8abf-ac8db5739e92",
-                "title": "Deploy Scenario",
+                "title": "Simulate Scenario",
                 "resources": [
                   "alerts"
                 ],
@@ -1087,7 +1087,7 @@
                     "filters": []
                   }
                 },
-                "executeButtonText": "Deploy Scenario",
+                "executeButtonText": "Simulate Scenario",
                 "noRecordExecution": true,
                 "singleRecordExecution": false
               },
@@ -1568,7 +1568,7 @@
                     ]
                   }
                 },
-                "executeButtonText": "Execute",
+                "executeButtonText": "Simulate Scenario",
                 "noRecordExecution": false,
                 "singleRecordExecution": true
               },
