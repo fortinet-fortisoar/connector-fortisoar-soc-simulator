@@ -1039,7 +1039,7 @@
               "description": null,
               "arguments": {
                 "route": "06541acc-eef5-41c4-8abf-ac8db5739e92",
-                "title": "Deploy Scenario",
+                "title": "Simulate Scenario",
                 "resources": [
                   "alerts"
                 ],
@@ -1087,7 +1087,7 @@
                     "filters": []
                   }
                 },
-                "executeButtonText": "Deploy Scenario",
+                "executeButtonText": "Simulate Scenario",
                 "noRecordExecution": true,
                 "singleRecordExecution": false
               },
@@ -1154,14 +1154,14 @@
           "name": "Reset Scenario",
           "aliasName": null,
           "tag": null,
-          "description": null,
+          "description": "Deletes created alerts and related records",
           "isActive": true,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1633945749,
+          "lastModifyDate": 1645717931,
           "collection": "/api/3/workflow_collections/86c5ea16-d69d-46e1-8013-2437beadbb09",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/4f2204cb-7ab0-44d5-ba6f-cee39abddafb",
@@ -1184,8 +1184,8 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "30",
-              "left": "775",
+              "top": "300",
+              "left": "125",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
               "uuid": "0e90a642-c833-4e74-817b-d9b728a201d7",
               "id": 10286
@@ -1207,8 +1207,8 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "30",
-              "left": "1425",
+              "top": "974",
+              "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "20c928f0-cd62-4c41-a140-d1c04541dc23",
               "id": 10287
@@ -1237,11 +1237,25 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "30",
-              "left": "453",
+              "top": "165",
+              "left": "125",
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928770",
               "uuid": "3b68c4b7-e9b3-4021-bae0-5c8b1c650c24",
               "id": 10288
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Extract Related Records",
+              "description": null,
+              "arguments": {
+                "related_records_iris": "{{vars.records_list|json_query('[][\"hydra:member\"][][][\"@id\"][]')}}"
+              },
+              "status": null,
+              "top": "570",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "46f3d026-d720-45d1-8d3d-e4113f89a95f",
+              "id": 14742
             },
             {
               "@type": "WorkflowStep",
@@ -1257,7 +1271,8 @@
                   "input": {
                     "params": [],
                     "records": "{{vars.input.records}}"
-                  }
+                  },
+                  "records_list": "[]"
                 },
                 "displayConditions": {
                   "usecase": {
@@ -1295,10 +1310,24 @@
               },
               "status": null,
               "top": "30",
-              "left": "120",
+              "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "4f2204cb-7ab0-44d5-ba6f-cee39abddafb",
               "id": 10289
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Related Data",
+              "description": null,
+              "arguments": {
+                "__tmp_get_records": "{%for iri in (vars.input.records[0].createdAlertsID|toDict)%}\n{{vars.records_list.append((iri+'/users?&__selectFields=id')|fromIRI)}}\n{{vars.records_list.append((iri+'/indicators?&__selectFields=id')|fromIRI)}}\n{{vars.records_list.append((iri+'/incidents?&__selectFields=id')|fromIRI)}}\n{{vars.records_list.append((iri+'/assets?&__selectFields=id')|fromIRI)}}\n{{vars.records_list.append((iri+'/tasks?&__selectFields=id')|fromIRI)}}\n{%endfor%}"
+              },
+              "status": null,
+              "top": "435",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "a10912fe-1078-4368-a0fe-9ac68401a32e",
+              "id": 14739
             },
             {
               "@type": "WorkflowStep",
@@ -1322,31 +1351,61 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "29",
-              "left": "1100",
+              "top": "705",
+              "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "uuid": "ddaca4c1-77ba-4dd9-9eb7-929737c763d2",
               "id": 10290
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Related Records",
+              "description": null,
+              "arguments": {
+                "when": "{{vars.related_records_iris|length > 0}}",
+                "params": {
+                  "iri": "{{vars.item}}",
+                  "body": "",
+                  "method": "DELETE"
+                },
+                "version": "3.2.0",
+                "for_each": {
+                  "item": "{{vars.related_records_iris}}",
+                  "parallel": false,
+                  "condition": ""
+                },
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "ignore_errors": true,
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "839",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "uuid": "fc3e4763-51d6-44b4-8a3b-d9328b834240",
+              "id": 14743
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Clear Use Case comments -> Delete Alerts",
-              "targetStep": "/api/3/workflow_steps/ddaca4c1-77ba-4dd9-9eb7-929737c763d2",
-              "sourceStep": "/api/3/workflow_steps/0e90a642-c833-4e74-817b-d9b728a201d7",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "098a2ec8-802b-4c50-b35a-13c26fc2c1a5"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Delete Alerts -> Delete Alerts Mentioned in Create Alert ID",
-              "targetStep": "/api/3/workflow_steps/20c928f0-cd62-4c41-a140-d1c04541dc23",
+              "name": "Delete Alerts -> Copy  of Delete Alerts",
+              "targetStep": "/api/3/workflow_steps/fc3e4763-51d6-44b4-8a3b-d9328b834240",
               "sourceStep": "/api/3/workflow_steps/ddaca4c1-77ba-4dd9-9eb7-929737c763d2",
               "label": null,
               "isExecuted": false,
-              "uuid": "53533a05-0a84-4476-b7fd-ad886be2c0c8"
+              "uuid": "3048d0ce-7875-4fcc-9168-a50a6c98e1f0"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Extract Related Records -> Delete Alerts",
+              "targetStep": "/api/3/workflow_steps/ddaca4c1-77ba-4dd9-9eb7-929737c763d2",
+              "sourceStep": "/api/3/workflow_steps/46f3d026-d720-45d1-8d3d-e4113f89a95f",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "b5791b03-8a89-4063-85d0-9242c7cc2542"
             },
             {
               "@type": "WorkflowRoute",
@@ -1356,6 +1415,33 @@
               "label": null,
               "isExecuted": false,
               "uuid": "c6b2c4bc-39ee-4679-9f12-8395684bb658"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Related Data -> Extract Related Records",
+              "targetStep": "/api/3/workflow_steps/46f3d026-d720-45d1-8d3d-e4113f89a95f",
+              "sourceStep": "/api/3/workflow_steps/a10912fe-1078-4368-a0fe-9ac68401a32e",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "c7d64f11-823c-486e-8a19-feba6e459a63"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Copy  of Delete Alerts -> Delete Alerts Mentioned in Create Alert ID",
+              "targetStep": "/api/3/workflow_steps/20c928f0-cd62-4c41-a140-d1c04541dc23",
+              "sourceStep": "/api/3/workflow_steps/fc3e4763-51d6-44b4-8a3b-d9328b834240",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "f3f308eb-5c90-4007-b963-a831e2fd92c7"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Clear Use Case comments -> Get Related Data",
+              "targetStep": "/api/3/workflow_steps/a10912fe-1078-4368-a0fe-9ac68401a32e",
+              "sourceStep": "/api/3/workflow_steps/0e90a642-c833-4e74-817b-d9b728a201d7",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "f43e1038-e1b7-4ca0-b4f4-cd82dd4579cd"
             },
             {
               "@type": "WorkflowRoute",
@@ -1369,12 +1455,15 @@
           ],
           "priority": null,
           "uuid": "98506caa-32ab-429d-9c0f-42d92a71b5d1",
-          "recordTags": [],
+          "recordTags": [
+            "Cleanup",
+            "Simulation"
+          ],
           "id": 2052,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
           "createDate": 1641142098,
-          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1641142098,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1645717931,
           "owners": [],
           "isPrivate": false
         },
@@ -1384,14 +1473,14 @@
           "name": "Run Scenario",
           "aliasName": null,
           "tag": null,
-          "description": null,
+          "description": "Execute a scenario and create its related records",
           "isActive": true,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1633945879,
+          "lastModifyDate": 1645717987,
           "collection": "/api/3/workflow_collections/86c5ea16-d69d-46e1-8013-2437beadbb09",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/6296aabe-9fc3-48ff-b077-6199bd340339",
@@ -1479,7 +1568,7 @@
                     ]
                   }
                 },
-                "executeButtonText": "Execute",
+                "executeButtonText": "Simulate Scenario",
                 "noRecordExecution": false,
                 "singleRecordExecution": true
               },
@@ -1543,12 +1632,14 @@
           ],
           "priority": null,
           "uuid": "a10522ac-2622-40bd-ad79-4487d9a1d7d7",
-          "recordTags": [],
+          "recordTags": [
+            "Simulation"
+          ],
           "id": 2053,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
           "createDate": 1641142098,
-          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1641142098,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1645717987,
           "owners": [],
           "isPrivate": false
         },
@@ -2437,14 +2528,14 @@
           "name": "Create Phishing Alert",
           "aliasName": null,
           "tag": null,
-          "description": "Create scenario alert from a JSON alert record",
+          "description": "Sample Simulation Playbook to create a scenario alert from a JSON alert record",
           "isActive": true,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1642767858,
+          "lastModifyDate": 1645718044,
           "collection": "/api/3/workflow_collections/86c5ea16-d69d-46e1-8013-2437beadbb09",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/c64c7968-8dfa-4ea8-bb1a-5b9ec1f103d7",
@@ -2656,7 +2747,7 @@
           "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
           "createDate": 1642767834,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1642767858,
+          "modifyDate": 1645718044,
           "owners": [],
           "isPrivate": false
         },
@@ -2806,6 +2897,8 @@
   "exported_tags": [
     "FortiSOAR SOC Simulator",
     "Sample",
+    "Cleanup",
+    "Simulation",
     "ManualTrigger",
     "Use-Case"
   ]
