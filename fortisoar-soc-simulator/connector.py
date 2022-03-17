@@ -26,6 +26,7 @@ class FortiSOARSocSimulator(Connector):
               import_records(records,scenario)
 
     def on_update_config(self, old_config, new_config, active):
+        scenarios = next(os.walk(os.path.join(os.path.dirname(__file__),"scenarios")))[1]  
         if new_config.get('import_records'):
           for scenario in scenarios:
               record_data_file = os.path.join(os.path.dirname(__file__),"scenarios/"+scenario+"/scenario_record.json")
