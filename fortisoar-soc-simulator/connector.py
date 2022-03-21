@@ -15,8 +15,7 @@ class FortiSOARSocSimulator(Connector):
         
         if(config.get('load_threat')):
           load_threat()
-        
-        
+              
     def on_update_config(self, old_config, new_config, active):
         
         if new_config.get('load_threat'):
