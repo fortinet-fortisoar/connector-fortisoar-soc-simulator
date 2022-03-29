@@ -3,7 +3,7 @@
     "version": "2.0.0",
     "label": "FortiSOAR SOC Simulator",
     "description": "FortiSOAR SOC Simulator",
-    "publisher": "FortiSOAR",
+    "publisher": "Fortinet",
     "icon_small_name": "fortisoar_small.png",
     "icon_large_name": "fortisoar_large.png",
     "category": "information",
