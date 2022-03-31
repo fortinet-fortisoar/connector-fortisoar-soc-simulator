@@ -230,7 +230,7 @@
             ]
         }         
     ],
-    "cs_approved": false,
+    "cs_approved": true,
     "cs_compatible": true,
     "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/fortisoar-soc-simulator/37/fortisoar-soc-simulator-v1-0-0"
 }
