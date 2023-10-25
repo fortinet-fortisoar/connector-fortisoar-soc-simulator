@@ -15,3 +15,5 @@
 ## Variables (Tags) now accept parameters
 
 - Variables such as TR_RANDOM_INTEGER, can now be written as: TR_RANDOM_INTEGER,10,20 so the value of the variable will be a random # between 10 and 20, similarily TR_ASSET_IP can now take a network address so its value will be a random IP from that subnet, exp: TR_ASSET_IP, would yield: 192.168.100.X, X between 2,240
+# 2.0.1:
+- Fixed connector initialization failure due to AlienVault API parameter change

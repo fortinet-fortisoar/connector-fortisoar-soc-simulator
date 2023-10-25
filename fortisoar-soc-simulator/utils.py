@@ -16,20 +16,20 @@ def load_threat():
     #These URLs require review. bad_domains updated @1.0.9
     threat_data = [{
         "name": "bad_ip",
-        "url": "https://otx.alienvault.com/otxapi/indicators/?type=IPv4&include_inactive=0&sort=-modified&q=modified:<24h&page=1&limit=100",
+        "url": "https://otx.alienvault.com/otxapi/indicators/?type=IPv4&include_inactive=0&q=modified:<24h&limit=100",
         "filename": "malicious_ips"
     }, {
         "name": "bad_hashes",
-        "url": "https://otx.alienvault.com/otxapi/indicators/?type=FileHash-SHA256&include_inactive=0&sort=-modified&q=modified:<24h&page=1&limit=100",
+        "url": "https://otx.alienvault.com/otxapi/indicators/?type=FileHash-SHA256&include_inactive=0&q=modified:<24h&limit=100",
         "filename": "malware_hashes"
     },
     {
         "name": "bad_domains",
-        "url": "https://otx.alienvault.com/otxapi/indicators/?type=domain&include_inactive=0&sort=-modified&q=modified:%3C1d&page=1&limit=100",
+        "url": "https://otx.alienvault.com/otxapi/indicators/?type=domain&include_inactive=0&q=modified:%3C1d&limit=100",
         "filename": "malicious_domains"
     }, {
         "name": "bad_urls",
-        "url": "https://otx.alienvault.com/otxapi/indicators/?type=URL&include_inactive=0&sort=-modified&q=modified:<24h&page=1&limit=100",
+        "url": "https://otx.alienvault.com/otxapi/indicators/?type=URL&include_inactive=0&q=modified:<24h&limit=100",
         "filename": "malicious_urls"
     }
     ]
