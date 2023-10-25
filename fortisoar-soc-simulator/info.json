@@ -1,6 +1,6 @@
 {
     "name": "fortisoar-soc-simulator",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "label": "FortiSOAR SOC Simulator",
     "description": "The FortiSOAR SOC Simulator connector is a special type of connector that is used to simulate a SOC environment. It creates various scenarios-based artifacts such as alerts, incidents, etc. in FortiSOAR™",
     "publisher": "Fortinet",
@@ -232,5 +232,5 @@
     ],
     "cs_approved": true,
     "cs_compatible": true,
-    "help_online": "https://docs.fortinet.com/document/fortisoar/2.0.0/fortisoar-soc-simulator/256/fortisoar-soc-simulator-v2-0-0"
+    "help_online": "https://docs.fortinet.com/document/fortisoar/2.0.1/fortisoar-soc-simulator/256/fortisoar-soc-simulator-v2-0-0"
 }
